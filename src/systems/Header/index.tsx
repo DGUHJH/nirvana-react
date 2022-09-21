@@ -25,7 +25,7 @@ const Header: React.FC<Props> = ({ onClickMenu }) => {
         <LogoContainer>
           <LogoImg src={logo} />
           <LogoTypoContainer>
-            <LogoTitleTypo>니르바나 (LIRVANA)</LogoTitleTypo>
+            <LogoTitleTypo>니르바나 (NIRVANA)</LogoTitleTypo>
             <LogoDescriptionTypo>동국대학교 게임 동아리</LogoDescriptionTypo>
           </LogoTypoContainer>
         </LogoContainer>
