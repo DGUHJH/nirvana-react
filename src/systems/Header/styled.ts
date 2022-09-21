@@ -4,9 +4,9 @@ import styled from 'styled-components';
 export const Root = styled.div`
   width: 100%;
   height: 100px;
+  background: #fff;
   display: flex;
   justify-content: center;
-  background: #fff;
   border-bottom: 1px #111 solid;
   box-sizing: border-box;
   position: fixed;
@@ -18,8 +18,8 @@ export const Root = styled.div`
 export const Container = styled.div`
   width: 1280px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 20px;
 `;
 
 export const LogoContainer = styled.div`
@@ -55,12 +55,18 @@ export const LogoDescriptionTypo = styled(Typography)`
 
 export const InfoContainer = styled.div`
   display: flex;
-  gap: 10px;
+  gap: 20px;
 `;
 
 export const InfoButton = styled(Button)``;
 
+export const InfoTypoWrapper = styled.div`
+  cursor: pointer;
+`;
+
 export const InfoTypo = styled(Typography)`
   &&& {
+    font-size: 24px;
+    font-weight: 700;
   }
 `;

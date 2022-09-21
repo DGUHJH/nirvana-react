@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Header from 'systems/Header';
 import {
   BannerImg,
@@ -50,6 +50,46 @@ const data = [
 const Main = () => {
   const [modalOpen, setModalOpen] = useState<boolean>(true);
 
+  const ref1 = useRef<any>();
+  const ref2 = useRef<any>();
+  const ref3 = useRef<any>();
+  const ref4 = useRef<any>();
+
+  const onClickMenu = (id: 1 | 2 | 3 | 4) => () => {
+    if (id === 1) {
+      window.scrollTo({
+        top: ref1.current.offsetTop - 100,
+        left: 0,
+        behavior: 'smooth',
+      });
+      return;
+    }
+    if (id === 2) {
+      window.scrollTo({
+        top: ref2.current.offsetTop - 100,
+        left: 0,
+        behavior: 'smooth',
+      });
+      return;
+    }
+    if (id === 3) {
+      window.scrollTo({
+        top: ref3.current.offsetTop - 100,
+        left: 0,
+        behavior: 'smooth',
+      });
+      return;
+    }
+    if (id === 4) {
+      window.scrollTo({
+        top: ref4.current.offsetTop - 100,
+        left: 0,
+        behavior: 'smooth',
+      });
+      return;
+    }
+  };
+
   return (
     <Root>
       <ContentModal
@@ -60,7 +100,7 @@ const Main = () => {
       >
         <ModalPosterImg src={poster1Img} />
       </ContentModal>
-      <Header />
+      <Header onClickMenu={onClickMenu} />
       <BannerImg src={bannerImg} />
       <BannerContainer>
         <BannerTitleTypo>니르바나는 현재 신입 부원 모집중!</BannerTitleTypo>
@@ -72,7 +112,7 @@ const Main = () => {
         </BannerContentTypo>
       </BannerContainer>
       <IntroContainer>
-        <Divider />
+        <Divider ref={ref1} />
         <IntroTitleTypo level={1}>
           🚩 동아리 활동 및 기획 소개 🚩
         </IntroTitleTypo>
@@ -161,7 +201,7 @@ const Main = () => {
         </IntroContentContainer>
       </IntroContainer>
       <EventContainer>
-        <Divider />
+        <Divider ref={ref2} />
         <EventTitleTypo>🚩 진행 예정 행사 🚩</EventTitleTypo>
         <EventCarousel afterChange={() => {}} autoplay={true}>
           <div>
@@ -182,7 +222,7 @@ const Main = () => {
         </EventCarousel>
       </EventContainer>
       <PriceContainer>
-        <Divider />
+        <Divider ref={ref3} />
         <PriceTitleTypo>
           🚩NIRVANA 21, 22학년도 외부 수상 및 활동내역🚩
         </PriceTitleTypo>
@@ -194,7 +234,7 @@ const Main = () => {
         />
       </PriceContainer>
       <ContactContainer>
-        <Divider />
+        <Divider ref={ref4} />
         <ContactTitleTypo>🚩동아리 공식 SNS 및 문의 🚩</ContactTitleTypo>
         <ContactContentContainer>
           <ContentButton type='primary' size='large' icon={<InstagramFilled />}>
