@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from 'systems/Header';
 import {
   BannerImg,
@@ -17,13 +17,49 @@ import {
   IntroPanel,
   EventContainer,
   EventTitleTypo,
+  PriceContainer,
+  PriceTitleTypo,
+  ContactContainer,
+  ContactTitleTypo,
+  ModalPosterImg,
+  ContentModal,
+  PriceList,
+  EventCarousel,
+  EventCarouselItemContainer,
+  ContactContentContainer,
+  ContentButton,
+  ContactButtonTypo,
 } from './styled';
 import bannerImg from 'assets/images/banner.png';
 import Footer from 'systems/Footer';
+import poster1Img from 'assets/images/poster_1.png';
+import { InstagramFilled, YoutubeFilled } from '@ant-design/icons';
+
+const data = [
+  '▪ 동국대 총학생회 주최 ‘비D면 데이트 - 게임 한 판 할래요?’ 리그 오브 레전드 1대1 대회 우승자, 준우승자 배출',
+  '▪ 동국대 총학생회 주최 ‘백상 컵’(리그오브레전드) 대회 동아리 부원으로만 구성된 팀으로 출전, 예선 본선 전승 우승',
+  '▪ 라이엇 게임즈 주최 2021 배틀 아카데미아 전국 대학리그 동국대 대표팀 출전',
+  '▪ 문화체육관광부 주최 2021 Esports 대학리그 리그오브레전드 동국대 대표팀 출전',
+  '▪ 학생회 주최 경영대 vs 공과대 남산올림픽 전승 우승',
+  "▪ 동국대학교 Esports 동아리 NIRVANA & 경희대학교 Esports 동아리 ESPERS 협동 주최 교류전 '동경전' 2연패",
+  '▪ 전국 Esports 대회 청춘전 8강 진출',
+  '▪ 문화체육관광부 주최 2022 Esports 대학리그 리그오브레전드 동국대 대표팀 출전',
+  "▪ 동국대 x 건국대 x 단국대 3개 대학 교류전 '삼국전' 진행 중",
+];
 
 const Main = () => {
+  const [modalOpen, setModalOpen] = useState<boolean>(true);
+
   return (
     <Root>
+      <ContentModal
+        title='공지사항'
+        visible={modalOpen}
+        onCancel={() => setModalOpen(false)}
+        footer={null}
+      >
+        <ModalPosterImg src={poster1Img} />
+      </ContentModal>
       <Header />
       <BannerImg src={bannerImg} />
       <BannerContainer>
@@ -106,13 +142,72 @@ const Main = () => {
                 *세부 사항은 NIRVANA 인스타그램 게시글 참고
               </IntroDescriptionTypo>
             </IntroPanel>
+            <IntroPanel
+              header={
+                <IntroSubTitleTypo level={3}>
+                  📣 NIRVANA x PC방
+                </IntroSubTitleTypo>
+              }
+              key='4'
+            >
+              <IntroDescriptionTypo>
+                NIRVANA는 대학생 최고의 모임장소이자 수요가 높은 여가공간인 학교
+                주변 PC방 프랜차이즈와 MOU 계약을 추진중에 있습니다. 보다
+                발전되고 특화되어 있는 NIRVANA만의 Esports 환경을 조성하기 위해
+                노력하고 있습니다.
+              </IntroDescriptionTypo>
+            </IntroPanel>
           </IntroCollapse>
         </IntroContentContainer>
       </IntroContainer>
       <EventContainer>
         <Divider />
         <EventTitleTypo>🚩 진행 예정 행사 🚩</EventTitleTypo>
+        <EventCarousel afterChange={() => {}} autoplay={true}>
+          <div>
+            <EventCarouselItemContainer style={{ background: '#f003' }}>
+              1
+            </EventCarouselItemContainer>
+          </div>
+          <div>
+            <EventCarouselItemContainer style={{ background: '#0f03' }}>
+              2
+            </EventCarouselItemContainer>
+          </div>
+          <div>
+            <EventCarouselItemContainer style={{ background: '#00f3' }}>
+              3
+            </EventCarouselItemContainer>
+          </div>
+        </EventCarousel>
       </EventContainer>
+      <PriceContainer>
+        <Divider />
+        <PriceTitleTypo>
+          🚩NIRVANA 21, 22학년도 외부 수상 및 활동내역🚩
+        </PriceTitleTypo>
+        <PriceList
+          size='large'
+          bordered
+          dataSource={data}
+          renderItem={(item: any) => <PriceList.Item>{item}</PriceList.Item>}
+        />
+      </PriceContainer>
+      <ContactContainer>
+        <Divider />
+        <ContactTitleTypo>🚩동아리 공식 SNS 및 문의 🚩</ContactTitleTypo>
+        <ContactContentContainer>
+          <ContentButton type='primary' size='large' icon={<InstagramFilled />}>
+            인스타그램
+          </ContentButton>
+          <ContentButton type='primary' size='large' icon={<InstagramFilled />}>
+            유튜브
+          </ContentButton>
+          <ContentButton type='primary' size='large'>
+            카카오톡 오픈 채팅방
+          </ContentButton>
+        </ContactContentContainer>
+      </ContactContainer>
       <Footer />
     </Root>
   );
