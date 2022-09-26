@@ -4,5 +4,4 @@ import { Root } from './styled';
 const Main = () => {
   return <Root />;
 };
-
 export default Main;
