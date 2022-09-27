@@ -39,7 +39,7 @@ const Login = () => {
         localStorage.setItem('uuid', res.data.data.uuid);
         window.location.replace('/');
       } else {
-        message.error('서버 오류입니다. 관리자에게 문의해주세요.');
+        message.error('아이디와 비밀번호를 확인해주세요.');
       }
     });
   };
