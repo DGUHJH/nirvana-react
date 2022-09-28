@@ -1,9 +1,8 @@
-import { Button, Input, Typography } from 'antd';
+import { Button, Carousel, Input, Typography } from 'antd';
 import styled from 'styled-components';
 
 export const Root = styled.div`
   width: 100%;
-  background: #111;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,7 +31,31 @@ export const ContentContainer = styled.div`
 `;
 
 export const ContentTypo = styled(Typography)``;
-
 export const ContentInput = styled(Input)``;
-
 export const ContentButton = styled(Button)``;
+export const ContentCarousel = styled(Carousel)`
+  width: 1280px;
+  height: 720px;
+`;
+
+export const SwiperContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-top: 50px;
+`;
+
+export const SwiperTitleTypo = styled(Typography.Title)`
+  &&& {
+    font-family: Jalnan;
+    font-weight: bold;
+  }
+`;
+
+export const SwiperInnerContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
