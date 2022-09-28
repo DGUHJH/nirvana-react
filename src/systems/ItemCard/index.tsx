@@ -3,6 +3,7 @@ import Meta from 'antd/lib/card/Meta';
 import React from 'react';
 import { Root } from './styled';
 import logo from 'assets/images/logo.png';
+import { useNavigate } from 'react-router-dom';
 
 type Props = {
   imgSrc?: any;
@@ -11,8 +12,10 @@ type Props = {
 };
 
 const ItemCard: React.FC<Props> = ({ imgSrc, title, description }) => {
+  const navigate = useNavigate();
+
   return (
-    <Root>
+    <Root onClick={() => navigate('/goods_details')}>
       <Card
         hoverable
         style={{
