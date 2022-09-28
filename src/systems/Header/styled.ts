@@ -38,6 +38,13 @@ export const TitleTypo = styled(Typography)`
   }
 `;
 
+export const LogoImg = styled.img`
+  width: 60px;
+  height: 60px;
+  margin-right: 40px;
+  cursor: pointer;
+`;
+
 export const MenuButton = styled(MenuOutlined)`
   font-size: 24px;
   cursor: pointer;
@@ -52,6 +59,13 @@ export const ContentContainer = styled.div`
   gap: 10px;
 `;
 
+export const MenuTypo = styled(Typography)`
+  &&& {
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+`;
 export const ContentTypo = styled(Typography)``;
 
 export const ContentInput = styled(Input)`

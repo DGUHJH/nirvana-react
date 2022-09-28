@@ -6,17 +6,23 @@ import {
   ContentContainer,
   ContentDrawer,
   ContentTypo,
+  LogoImg,
   MenuButton,
   MenuContainer,
+  MenuTypo,
   Root,
   TitleTypo,
 } from './styled';
+import logo2 from 'assets/images/logo2.png';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [name, setName] = useState<string>('');
   const [score, setScore] = useState<number>();
   const [isLogin, setIsLogin] = useState<boolean>();
+
+  const navigate = useNavigate();
 
   const onClickLogout = () => {
     localStorage.clear();
@@ -57,9 +63,15 @@ const Header = () => {
   return (
     <Root>
       <Container>
-        <TitleTypo>
-          니르바나 <br /> 마일리지샵
-        </TitleTypo>
+        <MenuContainer>
+          <LogoImg src={logo2} onClick={() => navigate('/')} />
+          <div onClick={() => navigate('/goods')}>
+            <MenuTypo>응모 상품</MenuTypo>
+          </div>
+          <div onClick={() => navigate('/exchange')}>
+            <MenuTypo>교환 상품</MenuTypo>
+          </div>
+        </MenuContainer>
         <MenuContainer>
           {isLogin ? (
             <>
