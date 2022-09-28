@@ -3,19 +3,23 @@ import styled from 'styled-components';
 
 export const Root = styled.div`
   width: 100%;
-  background: #eee;
+  background: #111;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
 export const Container = styled.div`
-  min-width: 320px;
+  width: 1280px;
   background: #fff;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding-top: 100px;
+  padding-top: 80px;
+`;
+
+export const BannerImg = styled.img`
+  width: 1280px;
 `;
 
 export const TitleTypo = styled(Typography.Title)``;

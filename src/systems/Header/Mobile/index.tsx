@@ -1,18 +1,16 @@
 import { commonAxios } from 'api/commonAxios';
 import React, { useEffect, useState } from 'react';
 import {
-  Container,
   ContentButton,
   ContentContainer,
   ContentDrawer,
   ContentTypo,
   MenuButton,
-  MenuContainer,
   Root,
   TitleTypo,
 } from './styled';
 
-const Header = () => {
+const MobileHeader = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [name, setName] = useState<string>('');
   const [score, setScore] = useState<number>();
@@ -55,28 +53,32 @@ const Header = () => {
   };
 
   return (
-    <Root>
-      <Container>
+    <>
+      <Root>
         <TitleTypo>
           니르바나 <br /> 마일리지샵
         </TitleTypo>
-        <MenuContainer>
+        <MenuButton onClick={handleOpen('OPEN')} />
+      </Root>
+      <ContentDrawer title='메뉴' open={open} onClose={handleOpen('CLOSE')}>
+        <ContentContainer>
           {isLogin ? (
             <>
-              <ContentTypo>
-                {name} 님 ({score}점)
-              </ContentTypo>
-              <ContentButton onClick={onClickLogout}>로그아웃</ContentButton>
+              <ContentTypo>이름 : {name}</ContentTypo>
+              <ContentTypo>마일리지 점수 : {score}</ContentTypo>
+              <ContentButton type='primary' onClick={onClickLogout}>
+                로그아웃
+              </ContentButton>
             </>
           ) : (
             <ContentButton type='primary' onClick={onClickLogout}>
               로그인
             </ContentButton>
           )}
-        </MenuContainer>
-      </Container>
-    </Root>
+        </ContentContainer>
+      </ContentDrawer>
+    </>
   );
 };
 
-export default Header;
+export default MobileHeader;

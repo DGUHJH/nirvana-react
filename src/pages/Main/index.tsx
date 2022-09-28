@@ -3,7 +3,8 @@ import { isMobile } from 'react-device-detect';
 import Header from 'systems/Header';
 import ItemCard from 'systems/ItemCard';
 import MobileMain from './Mobile';
-import { Container, ContentContainer, Root } from './styled';
+import { BannerImg, Container, ContentContainer, Root } from './styled';
+import main_banner from 'assets/images/main_banner.png';
 
 const Main = () => {
   if (isMobile) {
@@ -12,8 +13,9 @@ const Main = () => {
 
   return (
     <Root>
+      <Header />
       <Container>
-        <Header />
+        <BannerImg src={main_banner} />
       </Container>
     </Root>
   );

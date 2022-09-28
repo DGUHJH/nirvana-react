@@ -3,32 +3,19 @@ import { Button, Drawer, Input, Table, Typography } from 'antd';
 import styled from 'styled-components';
 
 export const Root = styled.div`
-  width: 100%;
+  width: 320px;
   height: 80px;
   background: #fff;
-  display: flex;
-  justify-content: center;
-  border-bottom: 1px #c9c9c9 solid;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 10;
-`;
-
-export const Container = styled.div`
-  width: 1280px;
-  height: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 10px;
   box-sizing: border-box;
-`;
-
-export const MenuContainer = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 20px;
+  border-bottom: 1px #c9c9c9 solid;
+  position: fixed;
+  top: 0;
+  left: calc(50% - 160px);
+  z-index: 10;
 `;
 
 export const TitleTypo = styled(Typography)`
