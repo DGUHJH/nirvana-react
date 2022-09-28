@@ -1,3 +1,4 @@
+import { Button, Image, Typography } from 'antd';
 import styled from 'styled-components';
 
 export const Root = styled.div`
@@ -28,4 +29,66 @@ export const CardContainer = styled.div`
   gap: 42px;
   flex-wrap: wrap;
   margin-top: 50px;
+`;
+
+export const ContentTitleTypo = styled(Typography.Title)`
+  &&& {
+    font-family: Jalnan;
+    font-weight: bold;
+    margin-top: 40px;
+  }
+`;
+
+export const ContentContainer = styled.div`
+  width: 1280px;
+  display: flex;
+  margin-top: 50px;
+`;
+
+export const ContentImg = styled(Image)`
+  width: 640px;
+  height: 640px;
+  border: 1px #c9c9c9 solid;
+  object-fit: contain;
+  border-radius: 8px;
+`;
+
+export const ContentInfoContainer = styled.div`
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 100px;
+`;
+
+export const ContentInfoTitleTypo = styled(Typography)`
+  font-size: 24px;
+  font-weight: bold;
+  word-break: keep-all;
+`;
+
+export const ContentInfoPriceContainer = styled.div`
+  display: flex;
+  align-items: flex-end;
+  color: #111;
+  gap: 10px;
+`;
+
+export const ContentInfoPriceNumberTypo = styled(Typography)`
+  font-size: 36px;
+  font-family: Jalnan;
+  font-weight: bold;
+  word-break: keep-all;
+`;
+
+export const ContentInfoPriceTypo = styled(Typography)`
+  font-size: 24px;
+  font-family: Jalnan;
+  font-weight: bold;
+  word-break: keep-all;
+  margin-bottom: 8px;
+`;
+
+export const ContentInfoButton = styled(Button)`
+  margin-top: 20px;
 `;
