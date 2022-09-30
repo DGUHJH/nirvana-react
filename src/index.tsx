@@ -28,7 +28,7 @@ root.render(
       <Route path='/exchange_details' element={<ExchangeDetails />} />
       <Route path='/manage/main' element={<ManageMain />} />
       <Route path='/manage/goods' element={<ManageGoods />} />
-      <Route path='/manage/memeber' element={<ManageMember />} />
+      <Route path='/manage/member' element={<ManageMember />} />
     </Routes>
   </BrowserRouter>
 );
