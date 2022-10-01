@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from 'systems/Header';
 import {
-  BannerImg,
-  CardContainer,
   Container,
   ContentContainer,
   ContentImg,
@@ -15,26 +13,36 @@ import {
   ContentTitleTypo,
   Root,
 } from './styled';
-
-import goods_list from 'assets/json/goods.json';
 import Footer from 'systems/Footer';
-import logo_img from 'assets/images/logo.png';
+import useGoods from 'hooks/useGoods';
+import { useLocation } from 'react-router-dom';
+import logo from 'assets/images/logo.png';
+import useGetImage from 'hooks/useGetImage';
 
 const GoodsDetails = () => {
-  const [goodsList, setGoodsList] = useState<any[]>(goods_list.data);
+  const location = useLocation();
+  const uuid = location.pathname.split('/')[2];
+  const { allGoodsList } = useGoods();
+  const { image } = useGetImage({ uuid });
+  const [goods, setGoods] = useState<any>();
+
+  useEffect(() => {
+    setGoods(allGoodsList.filter((value) => value.uuid === uuid)[0]);
+  }, [JSON.stringify(allGoodsList)]);
+
   return (
     <Root>
       <Header />
       <Container>
         <ContentTitleTypo>교환 상품 상세</ContentTitleTypo>
         <ContentContainer>
-          <ContentImg src={logo_img} />
+          <ContentImg src={image ? `data:image/jpeg;base64,${image}` : logo} />
           <ContentInfoContainer>
-            <ContentInfoTitleTypo>
-              앱코 HACKER K8200 카일광축 완전방수 크리스탈 투톤 게이밍 키보드
-            </ContentInfoTitleTypo>
+            <ContentInfoTitleTypo>{goods?.name}</ContentInfoTitleTypo>
             <ContentInfoPriceContainer>
-              <ContentInfoPriceNumberTypo>1,000</ContentInfoPriceNumberTypo>
+              <ContentInfoPriceNumberTypo>
+                {goods?.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+              </ContentInfoPriceNumberTypo>
               <ContentInfoPriceTypo>니르</ContentInfoPriceTypo>
             </ContentInfoPriceContainer>
             <ContentInfoButton

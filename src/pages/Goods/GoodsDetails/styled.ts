@@ -45,7 +45,7 @@ export const ContentContainer = styled.div`
   margin-top: 50px;
 `;
 
-export const ContentImg = styled(Image)`
+export const ContentImg = styled.img`
   width: 640px;
   height: 640px;
   border: 1px #c9c9c9 solid;

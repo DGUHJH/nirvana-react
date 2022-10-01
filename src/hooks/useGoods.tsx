@@ -23,15 +23,7 @@ const useGoods = () => {
     });
   }, []);
 
-  const getGoods = (uuid: number) => {
-    const result = allGoodsList.filter((value) => value.uuid === uuid);
-    if (result.length !== 0) {
-      return result[0];
-    }
-    return null;
-  };
-
-  return { enterGoodsList, goodsList, allGoodsList, getGoods };
+  return { enterGoodsList, goodsList, allGoodsList };
 };
 
 export default useGoods;

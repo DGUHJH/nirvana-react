@@ -11,9 +11,10 @@ type Props = {
   uuid: number;
   name: string;
   price: string;
+  is_enter: '1' | '0';
 };
 
-const ItemCard: React.FC<Props> = ({ imgSrc, uuid, name, price }) => {
+const ItemCard: React.FC<Props> = ({ imgSrc, uuid, name, price, is_enter }) => {
   const navigate = useNavigate();
   const [image, setImage] = useState<any>();
   const [loading, setLoading] = useState<'INIT' | 'LOAD'>('INIT');
@@ -28,10 +29,16 @@ const ItemCard: React.FC<Props> = ({ imgSrc, uuid, name, price }) => {
     });
   }, []);
 
-  console.log(image);
-
   return (
-    <Root onClick={() => navigate('/goods_details')}>
+    <Root
+      onClick={() =>
+        navigate(
+          is_enter === '1'
+            ? `/exchange_details/${uuid}`
+            : `/goods_details/${uuid}`
+        )
+      }
+    >
       <Card
         hoverable
         style={{

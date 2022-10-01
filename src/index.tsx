@@ -23,9 +23,9 @@ root.render(
       <Route path='/' element={<Main />} />
       <Route path='/login' element={<Login />} />
       <Route path='/goods' element={<Goods />} />
-      <Route path='/goods_details' element={<GoodsDetails />} />
+      <Route path='/goods_details/:id' element={<GoodsDetails />} />
       <Route path='/exchange' element={<Exchange />} />
-      <Route path='/exchange_details' element={<ExchangeDetails />} />
+      <Route path='/exchange_details/:id' element={<ExchangeDetails />} />
       <Route path='/manage/main' element={<ManageMain />} />
       <Route path='/manage/goods' element={<ManageGoods />} />
       <Route path='/manage/member' element={<ManageMember />} />
