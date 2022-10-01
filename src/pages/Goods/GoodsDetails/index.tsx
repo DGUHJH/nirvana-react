@@ -34,7 +34,7 @@ const GoodsDetails = () => {
     <Root>
       <Header />
       <Container>
-        <ContentTitleTypo>교환 상품 상세</ContentTitleTypo>
+        <ContentTitleTypo>응모 상품 상세</ContentTitleTypo>
         <ContentContainer>
           <ContentImg src={image ? `data:image/jpeg;base64,${image}` : logo} />
           <ContentInfoContainer>
