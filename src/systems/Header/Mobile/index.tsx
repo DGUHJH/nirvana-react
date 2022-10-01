@@ -19,7 +19,7 @@ import {
 import logo2 from 'assets/images/logo2.png';
 import { useNavigate } from 'react-router-dom';
 
-const Header = () => {
+const MobileHeader = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [name, setName] = useState<string>('');
   const [score, setScore] = useState<number>();
@@ -97,4 +97,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default MobileHeader;

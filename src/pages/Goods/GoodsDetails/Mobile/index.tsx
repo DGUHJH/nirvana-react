@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Header from 'systems/Header';
 import {
   Container,
   ContentContainer,
@@ -18,10 +17,9 @@ import useGoods from 'hooks/useGoods';
 import { useLocation } from 'react-router-dom';
 import logo from 'assets/images/logo.png';
 import useGetImage from 'hooks/useGetImage';
-import { isMobile } from 'react-device-detect';
-import MobileGoodsDetails from './Mobile';
+import MobileHeader from 'systems/Header/Mobile';
 
-const GoodsDetails = () => {
+const MobileGoodsDetails = () => {
   const location = useLocation();
   const uuid = location.pathname.split('/')[2];
   const { allGoodsList } = useGoods();
@@ -32,15 +30,11 @@ const GoodsDetails = () => {
     setGoods(allGoodsList.filter((value) => value.uuid === uuid)[0]);
   }, [JSON.stringify(allGoodsList)]);
 
-  if (isMobile) {
-    return <MobileGoodsDetails />;
-  }
-
   return (
     <Root>
-      <Header />
+      <MobileHeader />
       <Container>
-        <ContentTitleTypo>응모 상품 상세</ContentTitleTypo>
+        <ContentTitleTypo level={4}>응모 상품 상세</ContentTitleTypo>
         <ContentContainer>
           <ContentImg src={image ? `data:image/jpeg;base64,${image}` : logo} />
           <ContentInfoContainer>
@@ -69,4 +63,4 @@ const GoodsDetails = () => {
   );
 };
 
-export default GoodsDetails;
+export default MobileGoodsDetails;

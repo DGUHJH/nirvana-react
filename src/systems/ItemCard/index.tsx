@@ -33,7 +33,7 @@ const ItemCard: React.FC<Props> = ({ imgSrc, uuid, name, price, is_enter }) => {
     <Root
       onClick={() =>
         navigate(
-          is_enter === '1'
+          is_enter !== '1'
             ? `/exchange_details/${uuid}`
             : `/goods_details/${uuid}`
         )

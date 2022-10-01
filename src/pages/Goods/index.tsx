@@ -12,10 +12,15 @@ import goods_list from 'assets/json/goods.json';
 import ItemCard from 'systems/ItemCard';
 import Footer from 'systems/Footer';
 import useGoods from 'hooks/useGoods';
+import MobileGoods from './Mobile';
+import { isMobile } from 'react-device-detect';
 
 const Goods = () => {
   const { enterGoodsList, goodsList } = useGoods();
 
+  if (isMobile) {
+    return <MobileGoods />;
+  }
   return (
     <Root>
       <Header />

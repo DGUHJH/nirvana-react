@@ -18,6 +18,8 @@ import useGoods from 'hooks/useGoods';
 import { useLocation } from 'react-router-dom';
 import logo from 'assets/images/logo.png';
 import useGetImage from 'hooks/useGetImage';
+import { isMobile } from 'react-device-detect';
+import MobileEnterDetails from './Mobile';
 
 const ExchangeDetails = () => {
   const location = useLocation();
@@ -29,6 +31,10 @@ const ExchangeDetails = () => {
   useEffect(() => {
     setGoods(allGoodsList.filter((value) => value.uuid === uuid)[0]);
   }, [JSON.stringify(allGoodsList)]);
+
+  if (isMobile) {
+    return <MobileEnterDetails />;
+  }
 
   return (
     <Root>
