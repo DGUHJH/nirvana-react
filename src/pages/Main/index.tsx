@@ -21,10 +21,11 @@ import 'swiper/css/pagination';
 import { Autoplay, FreeMode, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Footer from 'systems/Footer';
+import { commonAxios } from 'api/commonAxios';
+import useGoods from 'hooks/useGoods';
 
 const Main = () => {
-  const [goodsList, setGoodsList] = useState<any[]>(goods_list.data);
-  const carouselRef = useRef<any>();
+  const { enterGoodsList, goodsList } = useGoods();
 
   if (isMobile) {
     return <MobileMain />;
@@ -52,7 +53,7 @@ const Main = () => {
             className='mySwiper'
             style={{ width: '1100px', height: '350px' }}
           >
-            {goodsList.map((goods, index) => {
+            {enterGoodsList.map((goods, index) => {
               return (
                 <SwiperSlide>
                   <SwiperInnerContainer>
