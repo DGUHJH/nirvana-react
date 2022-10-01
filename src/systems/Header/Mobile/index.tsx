@@ -1,20 +1,31 @@
 import { commonAxios } from 'api/commonAxios';
 import React, { useEffect, useState } from 'react';
 import {
+  Container,
   ContentButton,
   ContentContainer,
   ContentDrawer,
   ContentTypo,
+  DrawerContainer,
+  DrawerLinkImg,
+  DrawerTypo,
+  DrawerTypoContainer,
+  LogoImg,
   MenuButton,
+  MenuTypo,
   Root,
   TitleTypo,
 } from './styled';
+import logo2 from 'assets/images/logo2.png';
+import { useNavigate } from 'react-router-dom';
 
-const MobileHeader = () => {
+const Header = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [name, setName] = useState<string>('');
   const [score, setScore] = useState<number>();
   const [isLogin, setIsLogin] = useState<boolean>();
+
+  const navigate = useNavigate();
 
   const onClickLogout = () => {
     localStorage.clear();
@@ -53,32 +64,37 @@ const MobileHeader = () => {
   };
 
   return (
-    <>
-      <Root>
-        <TitleTypo>
-          니르바나 <br /> 마일리지샵
-        </TitleTypo>
+    <Root>
+      <Container>
+        <LogoImg src={logo2} onClick={() => navigate('/')} />
         <MenuButton onClick={handleOpen('OPEN')} />
-      </Root>
+      </Container>
       <ContentDrawer title='메뉴' open={open} onClose={handleOpen('CLOSE')}>
-        <ContentContainer>
+        <DrawerContainer>
           {isLogin ? (
             <>
-              <ContentTypo>이름 : {name}</ContentTypo>
-              <ContentTypo>마일리지 점수 : {score}</ContentTypo>
-              <ContentButton type='primary' onClick={onClickLogout}>
-                로그아웃
-              </ContentButton>
+              <ContentTypo>
+                {name} 님 ({score}점)
+              </ContentTypo>
+              <ContentButton onClick={onClickLogout}>로그아웃</ContentButton>
             </>
           ) : (
             <ContentButton type='primary' onClick={onClickLogout}>
               로그인
             </ContentButton>
           )}
-        </ContentContainer>
+          <DrawerTypoContainer onClick={() => navigate('/goods')}>
+            <DrawerLinkImg />
+            <DrawerTypo>응모 상품 리스트</DrawerTypo>
+          </DrawerTypoContainer>
+          <DrawerTypoContainer onClick={() => navigate('/exchange')}>
+            <DrawerLinkImg />
+            <DrawerTypo>교환 상품 리스트</DrawerTypo>
+          </DrawerTypoContainer>
+        </DrawerContainer>
       </ContentDrawer>
-    </>
+    </Root>
   );
 };
 
-export default MobileHeader;
+export default Header;
