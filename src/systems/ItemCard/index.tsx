@@ -1,6 +1,6 @@
 import { Card } from 'antd';
 import Meta from 'antd/lib/card/Meta';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Root } from './styled';
 import logo from 'assets/images/logo.png';
 import { useNavigate } from 'react-router-dom';
@@ -16,6 +16,7 @@ type Props = {
 const ItemCard: React.FC<Props> = ({ imgSrc, uuid, name, price }) => {
   const navigate = useNavigate();
   const [image, setImage] = useState<any>();
+  const [loading, setLoading] = useState<'INIT' | 'LOAD'>('INIT');
 
   useEffect(() => {
     commonAxios({
@@ -36,7 +37,14 @@ const ItemCard: React.FC<Props> = ({ imgSrc, uuid, name, price }) => {
         style={{
           width: 240,
         }}
-        cover={<img src={`data:image/jpeg;base64,${image}` ?? logo} />}
+        cover={
+          <img
+            src={image ? `data:image/jpeg;base64,${image}` : logo}
+            onLoad={(e) => {
+              setLoading('LOAD');
+            }}
+          />
+        }
       >
         <Meta title={name} description={`${price} 니르`} />
       </Card>
