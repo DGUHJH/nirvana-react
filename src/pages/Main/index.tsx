@@ -6,22 +6,18 @@ import MobileMain from './Mobile';
 import {
   BannerImg,
   Container,
-  ContentCarousel,
-  ContentContainer,
   Root,
   SwiperContainer,
   SwiperInnerContainer,
   SwiperTitleTypo,
 } from './styled';
 import main_banner from 'assets/images/main_banner.png';
-import goods_list from 'assets/json/goods.json';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 import { Autoplay, FreeMode, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Footer from 'systems/Footer';
-import { commonAxios } from 'api/commonAxios';
 import useGoods from 'hooks/useGoods';
 
 const Main = () => {
@@ -51,7 +47,7 @@ const Main = () => {
             }}
             modules={[Autoplay, FreeMode, Pagination]}
             className='mySwiper'
-            style={{ width: '1100px', height: '350px' }}
+            style={{ width: '1100px', height: '400px' }}
           >
             {enterGoodsList.map((goods, index) => {
               return (
@@ -79,7 +75,7 @@ const Main = () => {
             }}
             modules={[Autoplay, FreeMode, Pagination]}
             className='mySwiper'
-            style={{ width: '1100px', height: '350px' }}
+            style={{ width: '1100px', height: '400px' }}
           >
             {goodsList.map((goods, index) => {
               return (
