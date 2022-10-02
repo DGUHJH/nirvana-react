@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const Root = styled.div`
   width: 100%;
-  height: 100px;
+  height: 150px;
   background: #eee;
   display: flex;
   justify-content: center;
@@ -15,7 +15,15 @@ export const Container = styled.div`
   width: 1280px;
   height: 100%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  gap: 40px;
 `;
 
 export const TitleTypo = styled(Typography.Title)``;
+export const ContentTypo = styled(Typography)``;
+
+export const LogoImg = styled.img`
+  width: 80px;
+  height: 80px;
+`;
