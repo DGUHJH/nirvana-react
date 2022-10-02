@@ -1,7 +1,7 @@
 import { Card } from 'antd';
 import Meta from 'antd/lib/card/Meta';
 import React, { useEffect, useRef, useState } from 'react';
-import { Root } from './styled';
+import { CardImg, CardImgContainer, CardSkeleton, Root } from './styled';
 import logo from 'assets/images/logo.png';
 import { useNavigate } from 'react-router-dom';
 import { commonAxios } from 'api/commonAxios';
@@ -45,13 +45,15 @@ const ItemCard: React.FC<Props> = ({ imgSrc, uuid, name, price, is_enter }) => {
           width: 240,
         }}
         cover={
-          <img
-            src={image ? `data:image/jpeg;base64,${image}` : logo}
-            onLoad={(e) => {
-              setLoading('LOAD');
-            }}
-            style={{ border: '1px #eee solid' }}
-          />
+          <CardImgContainer>
+            <CardImg
+              src={`data:image/jpeg;base64,${image}`}
+              onLoad={(e) => {
+                setLoading('LOAD');
+              }}
+            />
+            {loading === 'INIT' && <CardSkeleton active={true} />}
+          </CardImgContainer>
         }
       >
         <Meta title={name} description={`${price} 니르`} />
