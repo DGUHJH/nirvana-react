@@ -81,7 +81,7 @@ const Header = () => {
               <ContentButton onClick={onClickLogout}>로그아웃</ContentButton>
             </>
           ) : (
-            <ContentButton type='primary' onClick={onClickLogout}>
+            <ContentButton type='primary' onClick={() => navigate('/login')}>
               로그인
             </ContentButton>
           )}
