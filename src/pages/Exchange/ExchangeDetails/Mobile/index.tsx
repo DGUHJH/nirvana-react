@@ -37,7 +37,7 @@ const MobileEnterDetails = () => {
       <Container>
         <ContentTitleTypo level={4}>교환 상품 상세</ContentTitleTypo>
         <ContentContainer>
-          <Image imgSrc={image} />
+          <Image imgSrc={image} size='small' />
           <ContentInfoContainer>
             <ContentInfoTitleTypo>{goods?.name}</ContentInfoTitleTypo>
             <ContentInfoPriceContainer>
