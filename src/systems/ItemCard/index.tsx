@@ -50,6 +50,7 @@ const ItemCard: React.FC<Props> = ({ imgSrc, uuid, name, price, is_enter }) => {
             onLoad={(e) => {
               setLoading('LOAD');
             }}
+            style={{ border: '1px #eee solid' }}
           />
         }
       >
