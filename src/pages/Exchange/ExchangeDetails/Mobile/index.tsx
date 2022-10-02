@@ -53,9 +53,9 @@ const MobileEnterDetails = () => {
                 }
               }}
             >
-              응모하기
+              교환하기
             </ContentInfoButton>
-            <ContentInfoButton disabled={true}>응모완료</ContentInfoButton>
+            <ContentInfoButton disabled={true}>교환완료</ContentInfoButton>
           </ContentInfoContainer>
         </ContentContainer>
       </Container>
