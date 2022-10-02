@@ -29,7 +29,7 @@ const MobileHeader = () => {
 
   const onClickLogout = () => {
     localStorage.clear();
-    window.location.replace('/login');
+    window.location.reload();
   };
 
   useEffect(() => {
