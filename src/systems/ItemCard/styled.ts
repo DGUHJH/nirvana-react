@@ -7,11 +7,12 @@ export const CardImgContainer = styled.div`
   width: 240px;
   height: 240px;
   position: relative;
-  border: 1px #eee solid;
 `;
 
 export const CardImg = styled.img`
   width: 240px;
+  box-sizing: border-box;
+  border: 1px #eee solid;
   z-index: 0;
 `;
 

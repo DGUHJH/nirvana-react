@@ -17,6 +17,7 @@ export const CardImgContainer = styled.div<CardImgContainerProps>`
   width: 320px;
   height: 320px;`}
   position: relative;
+  box-sizing: border-box;
   border: 1px #eee solid;
 `;
 
