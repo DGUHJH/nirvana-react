@@ -20,6 +20,7 @@ import logo from 'assets/images/logo.png';
 import useGetImage from 'hooks/useGetImage';
 import { isMobile } from 'react-device-detect';
 import MobileEnterDetails from './Mobile';
+import Image from 'components/Image';
 
 const ExchangeDetails = () => {
   const location = useLocation();
@@ -42,7 +43,7 @@ const ExchangeDetails = () => {
       <Container>
         <ContentTitleTypo>교환 상품 상세</ContentTitleTypo>
         <ContentContainer>
-          <ContentImg src={image ? `data:image/jpeg;base64,${image}` : logo} />
+          <Image imgSrc={image} />
           <ContentInfoContainer>
             <ContentInfoTitleTypo>{goods?.name}</ContentInfoTitleTypo>
             <ContentInfoPriceContainer>

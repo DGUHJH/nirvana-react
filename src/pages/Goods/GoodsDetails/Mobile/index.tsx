@@ -18,6 +18,7 @@ import { useLocation } from 'react-router-dom';
 import logo from 'assets/images/logo.png';
 import useGetImage from 'hooks/useGetImage';
 import MobileHeader from 'systems/Header/Mobile';
+import Image from 'components/Image';
 
 const MobileGoodsDetails = () => {
   const location = useLocation();
@@ -36,7 +37,7 @@ const MobileGoodsDetails = () => {
       <Container>
         <ContentTitleTypo level={4}>응모 상품 상세</ContentTitleTypo>
         <ContentContainer>
-          <ContentImg src={image ? `data:image/jpeg;base64,${image}` : logo} />
+          <Image imgSrc={image} />
           <ContentInfoContainer>
             <ContentInfoTitleTypo>{goods?.name}</ContentInfoTitleTypo>
             <ContentInfoPriceContainer>

@@ -11,6 +11,7 @@ import {
   ContentInfoPriceTypo,
   ContentInfoTitleTypo,
   ContentTitleTypo,
+  FooterWrapper,
   Root,
 } from './styled';
 import Footer from 'systems/Footer';
@@ -20,6 +21,7 @@ import logo from 'assets/images/logo.png';
 import useGetImage from 'hooks/useGetImage';
 import { isMobile } from 'react-device-detect';
 import MobileGoodsDetails from './Mobile';
+import Image from 'components/Image';
 
 const GoodsDetails = () => {
   const location = useLocation();
@@ -42,7 +44,7 @@ const GoodsDetails = () => {
       <Container>
         <ContentTitleTypo>응모 상품 상세</ContentTitleTypo>
         <ContentContainer>
-          <ContentImg src={image ? `data:image/jpeg;base64,${image}` : logo} />
+          <Image imgSrc={image} />
           <ContentInfoContainer>
             <ContentInfoTitleTypo>{goods?.name}</ContentInfoTitleTypo>
             <ContentInfoPriceContainer>
@@ -64,7 +66,9 @@ const GoodsDetails = () => {
           </ContentInfoContainer>
         </ContentContainer>
       </Container>
-      <Footer />
+      <FooterWrapper>
+        <Footer />
+      </FooterWrapper>
     </Root>
   );
 };
