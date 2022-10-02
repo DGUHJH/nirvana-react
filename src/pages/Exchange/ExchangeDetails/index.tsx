@@ -11,6 +11,7 @@ import {
   ContentInfoPriceTypo,
   ContentInfoTitleTypo,
   ContentTitleTypo,
+  FooterWrapper,
   Root,
 } from './styled';
 import Footer from 'systems/Footer';
@@ -65,7 +66,9 @@ const ExchangeDetails = () => {
           </ContentInfoContainer>
         </ContentContainer>
       </Container>
-      <Footer />
+      <FooterWrapper>
+        <Footer />
+      </FooterWrapper>
     </Root>
   );
 };

@@ -5,6 +5,7 @@ import {
   CardContainer,
   CardTitleTypo,
   Container,
+  FooterWrapper,
   Root,
 } from './styled';
 import main_banner from 'assets/images/main_banner.png';
@@ -34,7 +35,9 @@ const Exchange = () => {
           })}
         </CardContainer>
       </Container>
-      <Footer />
+      <FooterWrapper>
+        <Footer />
+      </FooterWrapper>
     </Root>
   );
 };

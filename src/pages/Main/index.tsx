@@ -6,6 +6,7 @@ import MobileMain from './Mobile';
 import {
   BannerImg,
   Container,
+  FooterWrapper,
   Root,
   SwiperContainer,
   SwiperInnerContainer,
@@ -89,7 +90,9 @@ const Main = () => {
           </Swiper>
         </SwiperContainer>
       </Container>
-      <Footer />
+      <FooterWrapper>
+        <Footer />
+      </FooterWrapper>
     </Root>
   );
 };

@@ -3,9 +3,12 @@ import styled from 'styled-components';
 
 export const Root = styled.div`
   width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  padding-bottom: 150px;
 `;
 
 export const Container = styled.div`
@@ -37,4 +40,11 @@ export const CardTitleTypo = styled(Typography.Title)`
     font-weight: bold;
     margin-top: 20px;
   }
+`;
+
+export const FooterWrapper = styled.div`
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 `;
