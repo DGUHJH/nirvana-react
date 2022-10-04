@@ -69,9 +69,16 @@ const GoodsDetails = () => {
               <ContentInfoPriceNumberTypo>
                 {goods?.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
               </ContentInfoPriceNumberTypo>
-              <ContentInfoPriceTypo>니르</ContentInfoPriceTypo>
+              <ContentInfoPriceTypo>
+                니르{' '}
+                {goods?.is_enter === '0' &&
+                  `(잔여 수량 : ${goods?.number - goods?.history_number} 개)`}
+              </ContentInfoPriceTypo>
             </ContentInfoPriceContainer>
-            {!isChecked ? (
+            {(goods?.is_enter !== '0' ||
+              (goods?.is_enter === '0' &&
+                goods?.number - goods?.history_number > 0)) &&
+            !isChecked ? (
               <ContentInfoButton
                 onClick={() => {
                   if (window.confirm('정말로 응모하시겠습니까?')) {
