@@ -60,7 +60,9 @@ const GoodsDetails = () => {
     <Root>
       <Header />
       <Container>
-        <ContentTitleTypo>응모 상품 상세</ContentTitleTypo>
+        <ContentTitleTypo>
+          {goods?.is_enter === '0' ? '교환' : '응모'} 상품 상세
+        </ContentTitleTypo>
         <ContentContainer>
           <Image imgSrc={image} />
           <ContentInfoContainer>
@@ -81,16 +83,28 @@ const GoodsDetails = () => {
             !isChecked ? (
               <ContentInfoButton
                 onClick={() => {
-                  if (window.confirm('정말로 응모하시겠습니까?')) {
+                  if (
+                    window.confirm(
+                      `정말로 ${
+                        goods?.is_enter === '0' ? '교환' : '응모'
+                      }하시겠습니까?`
+                    )
+                  ) {
                     postGoodsHistory();
-                    window.alert('응모가 완료되었습니다.');
+                    window.alert(
+                      `${
+                        goods?.is_enter === '0' ? '교환' : '응모'
+                      }가 완료되었습니다.`
+                    );
                   }
                 }}
               >
-                응모하기
+                {goods?.is_enter === '0' ? '교환' : '응모'}하기
               </ContentInfoButton>
             ) : (
-              <ContentInfoButton disabled={true}>응모완료</ContentInfoButton>
+              <ContentInfoButton disabled={true}>
+                {goods?.is_enter === '0' ? '교환' : '응모'}완료
+              </ContentInfoButton>
             )}
           </ContentInfoContainer>
         </ContentContainer>

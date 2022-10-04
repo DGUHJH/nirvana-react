@@ -12,10 +12,8 @@ import {
   ContentTitleTypo,
   Root,
 } from './styled';
-import Footer from 'systems/Footer';
 import useGoods from 'hooks/useGoods';
 import { useLocation } from 'react-router-dom';
-import logo from 'assets/images/logo.png';
 import useGetImage from 'hooks/useGetImage';
 import MobileHeader from 'systems/Header/Mobile';
 import Image from 'components/Image';
@@ -57,7 +55,9 @@ const MobileGoodsDetails = () => {
     <Root>
       <MobileHeader />
       <Container>
-        <ContentTitleTypo level={4}>응모 상품 상세</ContentTitleTypo>
+        <ContentTitleTypo level={4}>
+          {goods?.is_enter === '0' ? '교환' : '응모'} 상품 상세
+        </ContentTitleTypo>
         <ContentContainer>
           <Image imgSrc={image} size='small' />
           <ContentInfoContainer>
@@ -72,22 +72,34 @@ const MobileGoodsDetails = () => {
                   `(잔여 수량 : ${goods?.number - goods?.history_number} 개)`}
               </ContentInfoPriceTypo>
             </ContentInfoPriceContainer>
-            {(goods?.is_enter !== '0' ||
+            {(goods?.is_enter === '0' ||
               (goods?.is_enter === '0' &&
                 goods?.number - goods?.history_number > 0)) &&
             !isChecked ? (
               <ContentInfoButton
                 onClick={() => {
-                  if (window.confirm('정말로 응모하시겠습니까?')) {
+                  if (
+                    window.confirm(
+                      `정말로 ${
+                        goods?.is_enter === '0' ? '교환' : '응모'
+                      }하시겠습니까?`
+                    )
+                  ) {
                     postGoodsHistory();
-                    window.alert('응모가 완료되었습니다.');
+                    window.alert(
+                      `${
+                        goods?.is_enter === '0' ? '교환' : '응모'
+                      }가 완료되었습니다.`
+                    );
                   }
                 }}
               >
-                응모하기
+                {goods?.is_enter === '0' ? '교환' : '응모'}하기
               </ContentInfoButton>
             ) : (
-              <ContentInfoButton disabled={true}>응모완료</ContentInfoButton>
+              <ContentInfoButton disabled={true}>
+                {goods?.is_enter === '0' ? '교환' : '응모'}완료
+              </ContentInfoButton>
             )}
           </ContentInfoContainer>
         </ContentContainer>
