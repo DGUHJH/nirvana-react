@@ -1,10 +1,8 @@
 import React from 'react';
 import { Container, ContentTypo, LogoImg, Root, TitleTypo } from './styled';
 import logo from 'assets/images/logo2.png';
-import { isMobile } from 'react-device-detect';
-import MobileFooter from './Mobile';
 
-const Footer = () => {
+const MobileFooter = () => {
   return (
     <Root>
       <Container>
@@ -15,7 +13,8 @@ const Footer = () => {
           <br />
           서울특별시 중구 필동로 1길30
           <br />
-          대표자 연락처 / 010-6581-6380 마일리지샵 문의 / 010-4920-0567
+          대표자 연락처 / 010-6581-6380 <br />
+          마일리지샵 문의 / 010-4920-0567
           <br />
           NIRVANA 콘텐츠의 저작권은 저작권자 또는 제공처에 있으며, 이를 무단
           사용 및 도용하는 경우 저작권법 등에 따라 법적 책임을 질 수 있음을
@@ -30,4 +29,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default MobileFooter;

@@ -1,10 +1,10 @@
 import { message } from 'antd';
 import { commonAxios } from 'api/commonAxios';
 import React, { useEffect, useState } from 'react';
-import { isMobile } from 'react-device-detect';
 import Footer from 'systems/Footer';
+import MobileFooter from 'systems/Footer/Mobile';
 import Header from 'systems/Header';
-import MobileLogin from './Mobile';
+import MobileHeader from 'systems/Header/Mobile';
 import {
   Container,
   ContentButton,
@@ -15,7 +15,7 @@ import {
   TitleTypo,
 } from './styled';
 
-const Login = () => {
+const MobileLogin = () => {
   const [phoneNumber, setPhoneNumber] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
@@ -59,14 +59,10 @@ const Login = () => {
     localStorage.clear();
   }, []);
 
-  if (isMobile) {
-    return <MobileLogin />;
-  }
-
   return (
     <Root>
       <Container>
-        <Header />
+        <MobileHeader />
         <TitleTypo level={2}>로그인</TitleTypo>
         <ContentContainer>
           <ContentInput
@@ -88,10 +84,10 @@ const Login = () => {
         </ContentContainer>
       </Container>
       <FooterWrapper>
-        <Footer />
+        <MobileFooter />
       </FooterWrapper>
     </Root>
   );
 };
 
-export default Login;
+export default MobileLogin;
