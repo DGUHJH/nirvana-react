@@ -29,6 +29,10 @@ const Header = () => {
     window.location.reload();
   };
 
+  const onClickMyPage = () => {
+    navigate('/mypage');
+  };
+
   useEffect(() => {
     let uuid = localStorage.getItem('uuid');
     setIsLogin(!!uuid);
@@ -84,6 +88,7 @@ const Header = () => {
               <ContentTypo>
                 {name} 님 ({score}점)
               </ContentTypo>
+              <ContentButton onClick={onClickMyPage}>마이페이지</ContentButton>
               <ContentButton onClick={onClickLogout}>로그아웃</ContentButton>
             </>
           ) : (

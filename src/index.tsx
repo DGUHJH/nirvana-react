@@ -13,6 +13,7 @@ import ManageGoods from 'pages/Manage/Goods';
 import ManageMember from 'pages/Manage/Member';
 import Nirvana from 'pages/Nirvana';
 import Geng from 'pages/Geng';
+import MyPage from 'pages/MyPage';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -27,6 +28,7 @@ root.render(
       <Route path='/goods_details/:id' element={<GoodsDetails />} />
       <Route path='/exchange' element={<Exchange />} />
       <Route path='/geng' element={<Geng />} />
+      <Route path='/mypage' element={<MyPage />} />
       <Route path='/nirvana' element={<Nirvana />} />
       <Route path='/manage/main' element={<ManageMain />} />
       <Route path='/manage/goods' element={<ManageGoods />} />
