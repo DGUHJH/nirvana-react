@@ -1,3 +1,9 @@
+import {
+  ArrowLeftOutlined,
+  ArrowRightOutlined,
+  LeftOutlined,
+  RightOutlined,
+} from '@ant-design/icons';
 import { Button, Carousel, Input, Typography } from 'antd';
 import styled from 'styled-components';
 
@@ -68,4 +74,53 @@ export const FooterWrapper = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
+`;
+
+export const SwiperWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const SwiperLeftArrowWrapper = styled.div`
+  width: 90px;
+  height: 400px;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+`;
+
+export const SwiperLeftArrow = styled(LeftOutlined)`
+  &&& {
+    font-size: 36px;
+    z-index: 5;
+    cursor: pointer;
+  }
+`;
+
+export const SwiperRightArrowWrapper = styled.div`
+  width: 90px;
+  height: 400px;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 5;
+`;
+
+export const SwiperRightArrow = styled(RightOutlined)`
+  &&& {
+    font-size: 36px;
+    z-index: 5;
+    cursor: pointer;
+  }
 `;

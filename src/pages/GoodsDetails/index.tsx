@@ -15,27 +15,41 @@ import {
   Root,
 } from './styled';
 import Footer from 'systems/Footer';
-import useGoods from 'hooks/useGoods';
 import { useLocation } from 'react-router-dom';
-import logo from 'assets/images/logo.png';
 import useGetImage from 'hooks/useGetImage';
 import { isMobile } from 'react-device-detect';
 import MobileGoodsDetails from './Mobile';
 import Image from 'components/Image';
+import { commonAxios } from 'api/commonAxios';
 
 const GoodsDetails = () => {
   const location = useLocation();
   const uuid = location.pathname.split('/')[2];
-  const { allGoodsList } = useGoods();
+  const userUuid = localStorage.getItem('uuid');
   const { image } = useGetImage({ uuid });
   const [goods, setGoods] = useState<any>();
+  const [isChecked, setIsChecked] = useState<boolean>(false);
 
-  useEffect(() => {
-    setGoods(allGoodsList.filter((value) => value.uuid === uuid)[0]);
-  }, [JSON.stringify(allGoodsList)]);
+  const postGoodsHistory = () => {
+    commonAxios({
+      url: 'post_goods_history.php',
+      method: 'POST',
+      params: { goods_uuid: uuid, user_uuid: userUuid },
+    }).then((res) => {
+      window.location.reload();
+    });
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    commonAxios({
+      url: 'get_goods_details.php',
+      method: 'GET',
+      params: { goods_uuid: uuid, user_uuid: userUuid },
+    }).then((res) => {
+      setGoods(res.data.data);
+      setIsChecked(res.data.data.check);
+    });
   }, []);
 
   if (isMobile) {
@@ -57,16 +71,20 @@ const GoodsDetails = () => {
               </ContentInfoPriceNumberTypo>
               <ContentInfoPriceTypo>니르</ContentInfoPriceTypo>
             </ContentInfoPriceContainer>
-            <ContentInfoButton
-              onClick={() => {
-                if (window.confirm('정말로 응모하시겠습니까?')) {
-                  window.alert('응모가 완료되었습니다.');
-                }
-              }}
-            >
-              응모하기
-            </ContentInfoButton>
-            <ContentInfoButton disabled={true}>응모완료</ContentInfoButton>
+            {!isChecked ? (
+              <ContentInfoButton
+                onClick={() => {
+                  if (window.confirm('정말로 응모하시겠습니까?')) {
+                    postGoodsHistory();
+                    window.alert('응모가 완료되었습니다.');
+                  }
+                }}
+              >
+                응모하기
+              </ContentInfoButton>
+            ) : (
+              <ContentInfoButton disabled={true}>응모완료</ContentInfoButton>
+            )}
           </ContentInfoContainer>
         </ContentContainer>
       </Container>

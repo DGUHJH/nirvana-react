@@ -58,6 +58,12 @@ export const SwiperTitleTypo = styled(Typography.Title)`
   }
 `;
 
+export const SwiperWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
+
 export const SwiperInnerContainer = styled.div`
   width: 100%;
   display: flex;
