@@ -21,7 +21,9 @@ export const Container = styled.div`
   margin-top: 20px;
 `;
 
-export const TitleTypo = styled(Typography.Title)``;
+export const TitleTypo = styled(Typography.Title)`
+  font-family: Jalnan;
+`;
 
 export const ContentContainer = styled.div`
   display: flex;
@@ -73,6 +75,7 @@ export const CardTitleTypoWrapper = styled.div`
 
 export const CardTitleTypo = styled(Typography)`
   &&& {
+    font-family: Jalnan;
     font-size: 18px;
     font-weight: bold;
   }
