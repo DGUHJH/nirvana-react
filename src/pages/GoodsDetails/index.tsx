@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Header from 'systems/Header';
 import {
   Container,
@@ -14,6 +14,10 @@ import {
   ContentTitleTypo,
   FooterWrapper,
   Root,
+  SwiperLeftArrow,
+  SwiperLeftArrowWrapper,
+  SwiperRightArrow,
+  SwiperRightArrowWrapper,
 } from './styled';
 import Footer from 'systems/Footer';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -26,6 +30,18 @@ import { Carousel } from 'antd';
 import bag_1 from 'assets/images/bag_1.png';
 import bag_2 from 'assets/images/bag_2.png';
 import bag_3 from 'assets/images/bag_3.png';
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import SwiperCore, {
+  Autoplay,
+  Controller,
+  FreeMode,
+  Navigation,
+  Pagination,
+} from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 const GoodsDetails = () => {
   const location = useLocation();
@@ -35,6 +51,8 @@ const GoodsDetails = () => {
   const { image } = useGetImage({ uuid: goodsUuid });
   const [goods, setGoods] = useState<any>();
   const [isChecked, setIsChecked] = useState<boolean>(false);
+  const leftRef = useRef<any>();
+  const rightRef = useRef<any>();
 
   const postGoodsHistory = () => {
     commonAxios({
@@ -64,6 +82,14 @@ const GoodsDetails = () => {
     });
   }, []);
 
+  const onBeforeInit = (Swiper: any): void => {
+    if (typeof Swiper.params.navigation !== 'boolean') {
+      const navigation = Swiper.params.navigation;
+      navigation.prevEl = leftRef.current;
+      navigation.nextEl = rightRef.current;
+    }
+  };
+
   if (isMobile) {
     return <MobileGoodsDetails />;
   }
@@ -77,22 +103,37 @@ const GoodsDetails = () => {
         </ContentTitleTypo>
         <ContentContainer>
           {goodsUuid === '22' ? (
-            <Carousel
-              autoplay
-              dots
-              arrows
+            <Swiper
+              onBeforeInit={onBeforeInit}
+              slidesPerView={1}
+              spaceBetween={30}
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+              }}
+              pagination={{
+                clickable: true,
+              }}
+              modules={[Autoplay, Pagination]}
+              className='mySwiper'
               style={{ width: '640px', height: '640px' }}
             >
-              <div>
+              <SwiperSlide>
                 <img src={bag_1} style={{ width: '640px', height: '640px' }} />
-              </div>
-              <div>
+              </SwiperSlide>
+              <SwiperSlide>
                 <img src={bag_2} style={{ width: '640px', height: '640px' }} />
-              </div>
-              <div>
+              </SwiperSlide>
+              <SwiperSlide>
                 <img src={bag_3} style={{ width: '640px', height: '640px' }} />
-              </div>
-            </Carousel>
+              </SwiperSlide>
+              <SwiperLeftArrowWrapper ref={leftRef}>
+                <SwiperLeftArrow />
+              </SwiperLeftArrowWrapper>
+              <SwiperRightArrowWrapper ref={rightRef}>
+                <SwiperRightArrow />
+              </SwiperRightArrowWrapper>
+            </Swiper>
           ) : (
             <Image imgSrc={image} />
           )}

@@ -1,3 +1,4 @@
+import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import { Button, Image, Typography } from 'antd';
 import styled from 'styled-components';
 
@@ -97,4 +98,44 @@ export const ContentInfoPriceTypo = styled(Typography)`
 
 export const ContentInfoButton = styled(Button)`
   margin-top: 20px;
+`;
+
+export const SwiperLeftArrowWrapper = styled.div`
+  width: 90px;
+  height: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+`;
+
+export const SwiperLeftArrow = styled(LeftOutlined)`
+  &&& {
+    font-size: 36px;
+    z-index: 5;
+    cursor: pointer;
+  }
+`;
+
+export const SwiperRightArrowWrapper = styled.div`
+  width: 90px;
+  height: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 5;
+`;
+
+export const SwiperRightArrow = styled(RightOutlined)`
+  &&& {
+    font-size: 36px;
+    z-index: 5;
+    cursor: pointer;
+  }
 `;
