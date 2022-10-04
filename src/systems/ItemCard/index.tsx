@@ -30,15 +30,7 @@ const ItemCard: React.FC<Props> = ({ imgSrc, uuid, name, price, is_enter }) => {
   }, []);
 
   return (
-    <Root
-      onClick={() =>
-        navigate(
-          is_enter !== '1'
-            ? `/exchange_details/${uuid}`
-            : `/goods_details/${uuid}`
-        )
-      }
-    >
+    <Root onClick={() => navigate(`/goods_details/${uuid}`)}>
       <Card
         hoverable
         style={{

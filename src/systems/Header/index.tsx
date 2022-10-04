@@ -68,6 +68,12 @@ const Header = () => {
           <div onClick={() => navigate('/goods')}>
             <MenuTypo>응모 상품</MenuTypo>
           </div>
+          <div onClick={() => navigate('/geng')}>
+            <MenuTypo>젠지 선수단 친필 사인</MenuTypo>
+          </div>
+          <div onClick={() => navigate('/nirvana')}>
+            <MenuTypo>니르바나 굿즈</MenuTypo>
+          </div>
           <div onClick={() => navigate('/exchange')}>
             <MenuTypo>교환 상품</MenuTypo>
           </div>

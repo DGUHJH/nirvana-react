@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Header from 'systems/Header';
 import {
   Container,
   ContentContainer,
@@ -18,10 +19,11 @@ import useGoods from 'hooks/useGoods';
 import { useLocation } from 'react-router-dom';
 import logo from 'assets/images/logo.png';
 import useGetImage from 'hooks/useGetImage';
-import MobileHeader from 'systems/Header/Mobile';
+import { isMobile } from 'react-device-detect';
+import MobileGoodsDetails from './Mobile';
 import Image from 'components/Image';
 
-const MobileEnterDetails = () => {
+const GoodsDetails = () => {
   const location = useLocation();
   const uuid = location.pathname.split('/')[2];
   const { allGoodsList } = useGoods();
@@ -32,13 +34,21 @@ const MobileEnterDetails = () => {
     setGoods(allGoodsList.filter((value) => value.uuid === uuid)[0]);
   }, [JSON.stringify(allGoodsList)]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  if (isMobile) {
+    return <MobileGoodsDetails />;
+  }
+
   return (
     <Root>
-      <MobileHeader />
+      <Header />
       <Container>
-        <ContentTitleTypo level={4}>교환 상품 상세</ContentTitleTypo>
+        <ContentTitleTypo>응모 상품 상세</ContentTitleTypo>
         <ContentContainer>
-          <Image imgSrc={image} size='small' />
+          <Image imgSrc={image} />
           <ContentInfoContainer>
             <ContentInfoTitleTypo>{goods?.name}</ContentInfoTitleTypo>
             <ContentInfoPriceContainer>
@@ -54,9 +64,9 @@ const MobileEnterDetails = () => {
                 }
               }}
             >
-              교환하기
+              응모하기
             </ContentInfoButton>
-            <ContentInfoButton disabled={true}>교환완료</ContentInfoButton>
+            <ContentInfoButton disabled={true}>응모완료</ContentInfoButton>
           </ContentInfoContainer>
         </ContentContainer>
       </Container>
@@ -67,4 +77,4 @@ const MobileEnterDetails = () => {
   );
 };
 
-export default MobileEnterDetails;
+export default GoodsDetails;

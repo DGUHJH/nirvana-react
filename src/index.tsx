@@ -6,12 +6,13 @@ import Login from 'pages/Login';
 import 'antd/dist/antd.css';
 import 'default.css';
 import ManageMain from 'pages/Manage/Main';
-import GoodsDetails from 'pages/Goods/GoodsDetails';
+import GoodsDetails from 'pages/GoodsDetails';
 import Goods from 'pages/Goods';
-import ExchangeDetails from 'pages/Exchange/ExchangeDetails';
 import Exchange from 'pages/Exchange';
 import ManageGoods from 'pages/Manage/Goods';
 import ManageMember from 'pages/Manage/Member';
+import Nirvana from 'pages/Nirvana';
+import Geng from 'pages/Geng';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -25,7 +26,8 @@ root.render(
       <Route path='/goods' element={<Goods />} />
       <Route path='/goods_details/:id' element={<GoodsDetails />} />
       <Route path='/exchange' element={<Exchange />} />
-      <Route path='/exchange_details/:id' element={<ExchangeDetails />} />
+      <Route path='/geng' element={<Geng />} />
+      <Route path='/nirvana' element={<Nirvana />} />
       <Route path='/manage/main' element={<ManageMain />} />
       <Route path='/manage/goods' element={<ManageGoods />} />
       <Route path='/manage/member' element={<ManageMember />} />

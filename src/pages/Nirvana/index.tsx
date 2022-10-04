@@ -12,24 +12,23 @@ import main_banner from 'assets/images/main_banner.png';
 import ItemCard from 'systems/ItemCard';
 import Footer from 'systems/Footer';
 import useGoods from 'hooks/useGoods';
+import MobileGoods from './Mobile';
 import { isMobile } from 'react-device-detect';
-import MobileExchange from './Mobile';
 
-const Exchange = () => {
-  const { enterGoodsList, goodsList } = useGoods();
+const Nirvana = () => {
+  const { nirvanaList, goodsList } = useGoods();
 
   if (isMobile) {
-    return <MobileExchange />;
+    return <MobileGoods />;
   }
-
   return (
     <Root>
       <Header />
       <Container>
         <BannerImg src={main_banner} />
-        <CardTitleTypo>교환 상품 리스트</CardTitleTypo>
+        <CardTitleTypo>응모 상품 리스트</CardTitleTypo>
         <CardContainer>
-          {goodsList.map((goods, index) => {
+          {nirvanaList.map((goods, index) => {
             return <ItemCard {...goods} key={`goods_${index}`} />;
           })}
         </CardContainer>
@@ -41,4 +40,4 @@ const Exchange = () => {
   );
 };
 
-export default Exchange;
+export default Nirvana;

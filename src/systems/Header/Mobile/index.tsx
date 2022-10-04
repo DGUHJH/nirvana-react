@@ -87,6 +87,14 @@ const MobileHeader = () => {
             <DrawerLinkImg />
             <DrawerTypo>응모 상품 리스트</DrawerTypo>
           </DrawerTypoContainer>
+          <DrawerTypoContainer onClick={() => navigate('/geng')}>
+            <DrawerLinkImg />
+            <DrawerTypo>젠지 선수단 친필 사인 리스트</DrawerTypo>
+          </DrawerTypoContainer>
+          <DrawerTypoContainer onClick={() => navigate('/nirvana')}>
+            <DrawerLinkImg />
+            <DrawerTypo>니르바나 굿즈 리스트</DrawerTypo>
+          </DrawerTypoContainer>
           <DrawerTypoContainer onClick={() => navigate('/exchange')}>
             <DrawerLinkImg />
             <DrawerTypo>교환 상품 리스트</DrawerTypo>
