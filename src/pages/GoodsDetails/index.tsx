@@ -3,6 +3,7 @@ import Header from 'systems/Header';
 import {
   Container,
   ContentContainer,
+  ContentDescriptionTypo,
   ContentImg,
   ContentInfoButton,
   ContentInfoContainer,
@@ -107,6 +108,9 @@ const GoodsDetails = () => {
                   `(잔여 수량 : ${goods?.number - goods?.history_number} 개)`}
               </ContentInfoPriceTypo>
             </ContentInfoPriceContainer>
+            <ContentDescriptionTypo>
+              {goods?.description}
+            </ContentDescriptionTypo>
             {(goods?.is_enter !== '0' ||
               (goods?.is_enter === '0' &&
                 goods?.number - goods?.history_number > 0)) &&

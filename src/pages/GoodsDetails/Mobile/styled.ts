@@ -34,6 +34,15 @@ export const ContentTitleTypo = styled(Typography.Title)`
   }
 `;
 
+export const ContentDescriptionTypo = styled(Typography)`
+  &&& {
+    font-family: Jalnan;
+    font-weight: 400;
+    font-size: 15px;
+    margin-top: 10px;
+  }
+`;
+
 export const ContentContainer = styled.div`
   width: 100%;
   display: flex;

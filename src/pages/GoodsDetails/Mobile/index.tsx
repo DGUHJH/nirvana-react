@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {
   Container,
   ContentContainer,
+  ContentDescriptionTypo,
   ContentImg,
   ContentInfoButton,
   ContentInfoContainer,
@@ -68,16 +69,16 @@ const MobileGoodsDetails = () => {
               autoplay
               dots
               arrows
-              style={{ width: '640px', height: '640px' }}
+              style={{ width: '320px', height: '320px' }}
             >
               <div>
-                <img src={bag_1} style={{ width: '640px', height: '640px' }} />
+                <img src={bag_1} style={{ width: '320px', height: '320px' }} />
               </div>
               <div>
-                <img src={bag_2} style={{ width: '640px', height: '640px' }} />
+                <img src={bag_2} style={{ width: '320px', height: '320px' }} />
               </div>
               <div>
-                <img src={bag_3} style={{ width: '640px', height: '640px' }} />
+                <img src={bag_3} style={{ width: '320px', height: '320px' }} />
               </div>
             </Carousel>
           ) : (
@@ -95,6 +96,9 @@ const MobileGoodsDetails = () => {
                   `(잔여 수량 : ${goods?.number - goods?.history_number} 개)`}
               </ContentInfoPriceTypo>
             </ContentInfoPriceContainer>
+            <ContentDescriptionTypo>
+              {goods?.description}
+            </ContentDescriptionTypo>
             {(goods?.is_enter !== '0' ||
               (goods?.is_enter === '0' &&
                 goods?.number - goods?.history_number > 0)) &&
