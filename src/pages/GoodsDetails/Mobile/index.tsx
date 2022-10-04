@@ -19,6 +19,10 @@ import MobileHeader from 'systems/Header/Mobile';
 import Image from 'components/Image';
 import MobileFooter from 'systems/Footer/Mobile';
 import { commonAxios } from 'api/commonAxios';
+import bag_1 from 'assets/images/bag_1.png';
+import bag_2 from 'assets/images/bag_2.png';
+import bag_3 from 'assets/images/bag_3.png';
+import { Carousel } from 'antd';
 
 const MobileGoodsDetails = () => {
   const location = useLocation();
@@ -59,7 +63,26 @@ const MobileGoodsDetails = () => {
           {goods?.is_enter === '0' ? '교환' : '응모'} 상품 상세
         </ContentTitleTypo>
         <ContentContainer>
-          <Image imgSrc={image} size='small' />
+          {goodsUuid === '22' ? (
+            <Carousel
+              autoplay
+              dots
+              arrows
+              style={{ width: '640px', height: '640px' }}
+            >
+              <div>
+                <img src={bag_1} style={{ width: '640px', height: '640px' }} />
+              </div>
+              <div>
+                <img src={bag_2} style={{ width: '640px', height: '640px' }} />
+              </div>
+              <div>
+                <img src={bag_3} style={{ width: '640px', height: '640px' }} />
+              </div>
+            </Carousel>
+          ) : (
+            <Image imgSrc={image} size='small' />
+          )}
           <ContentInfoContainer>
             <ContentInfoTitleTypo>{goods?.name}</ContentInfoTitleTypo>
             <ContentInfoPriceContainer>
