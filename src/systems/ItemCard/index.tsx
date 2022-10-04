@@ -1,7 +1,13 @@
 import { Card } from 'antd';
 import Meta from 'antd/lib/card/Meta';
 import React, { useEffect, useRef, useState } from 'react';
-import { CardImg, CardImgContainer, CardSkeleton, Root } from './styled';
+import {
+  CardImg,
+  CardImgContainer,
+  CardImgNumberTypo,
+  CardSkeleton,
+  Root,
+} from './styled';
 import logo from 'assets/images/logo.png';
 import { useNavigate } from 'react-router-dom';
 import { commonAxios } from 'api/commonAxios';
@@ -11,10 +17,18 @@ type Props = {
   uuid: number;
   name: string;
   price: string;
+  number: string;
   is_enter: '1' | '0';
 };
 
-const ItemCard: React.FC<Props> = ({ imgSrc, uuid, name, price, is_enter }) => {
+const ItemCard: React.FC<Props> = ({
+  imgSrc,
+  uuid,
+  name,
+  price,
+  number,
+  is_enter,
+}) => {
   const navigate = useNavigate();
   const [image, setImage] = useState<any>();
   const [loading, setLoading] = useState<'INIT' | 'LOAD'>('INIT');
@@ -44,6 +58,7 @@ const ItemCard: React.FC<Props> = ({ imgSrc, uuid, name, price, is_enter }) => {
                 setLoading('LOAD');
               }}
             />
+            <CardImgNumberTypo>수량 : {number} 개</CardImgNumberTypo>
             {loading === 'INIT' && <CardSkeleton active={true} />}
           </CardImgContainer>
         }

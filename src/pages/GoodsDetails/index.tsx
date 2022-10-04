@@ -145,8 +145,9 @@ const GoodsDetails = () => {
               </ContentInfoPriceNumberTypo>
               <ContentInfoPriceTypo>
                 니르{' '}
-                {goods?.is_enter === '0' &&
-                  `(잔여 수량 : ${goods?.number - goods?.history_number} 개)`}
+                {goods?.is_enter === '0'
+                  ? `(잔여 수량 : ${goods?.number - goods?.history_number} 개)`
+                  : `(수량 : ${goods?.number} 개)`}
               </ContentInfoPriceTypo>
             </ContentInfoPriceContainer>
             <ContentDescriptionTypo>

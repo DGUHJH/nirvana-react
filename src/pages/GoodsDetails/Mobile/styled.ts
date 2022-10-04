@@ -93,7 +93,7 @@ export const ContentInfoPriceTypo = styled(Typography)`
   font-family: Jalnan;
   font-weight: bold;
   word-break: keep-all;
-  margin-bottom: 8px;
+  margin-bottom: 3px;
 `;
 
 export const ContentInfoButton = styled(Button)`
