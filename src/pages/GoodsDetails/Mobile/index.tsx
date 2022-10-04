@@ -22,10 +22,10 @@ import { commonAxios } from 'api/commonAxios';
 
 const MobileGoodsDetails = () => {
   const location = useLocation();
-  const uuid = location.pathname.split('/')[2];
+  const goodsUuid = location.pathname.split('/')[2];
   const userUuid = localStorage.getItem('uuid');
   const { allGoodsList } = useGoods();
-  const { image } = useGetImage({ uuid });
+  const { image } = useGetImage({ uuid: goodsUuid });
   const [goods, setGoods] = useState<any>();
   const [isChecked, setIsChecked] = useState<boolean>(false);
 
@@ -33,7 +33,7 @@ const MobileGoodsDetails = () => {
     commonAxios({
       url: 'post_goods_history.php',
       method: 'POST',
-      params: { goods_uuid: uuid, user_uuid: userUuid },
+      params: { goods_uuid: goodsUuid, user_uuid: userUuid },
     }).then((res) => {
       window.location.reload();
     });
@@ -44,7 +44,7 @@ const MobileGoodsDetails = () => {
     commonAxios({
       url: 'get_goods_details.php',
       method: 'GET',
-      params: { goods_uuid: uuid, user_uuid: userUuid },
+      params: { goods_uuid: goodsUuid, user_uuid: userUuid },
     }).then((res) => {
       setGoods(res.data.data);
       setIsChecked(res.data.data.check);
