@@ -19,6 +19,7 @@ import logo from 'assets/images/logo.png';
 import useGetImage from 'hooks/useGetImage';
 import MobileHeader from 'systems/Header/Mobile';
 import Image from 'components/Image';
+import MobileFooter from 'systems/Footer/Mobile';
 
 const MobileGoodsDetails = () => {
   const location = useLocation();
@@ -59,7 +60,7 @@ const MobileGoodsDetails = () => {
           </ContentInfoContainer>
         </ContentContainer>
       </Container>
-      <Footer />
+      <MobileFooter />
     </Root>
   );
 };

@@ -12,6 +12,7 @@ import ItemCard from 'systems/ItemCard';
 import Footer from 'systems/Footer';
 import useGoods from 'hooks/useGoods';
 import MobileHeader from 'systems/Header/Mobile';
+import MobileFooter from 'systems/Footer/Mobile';
 
 const MobileExchange = () => {
   const { enterGoodsList, goodsList } = useGoods();
@@ -27,7 +28,7 @@ const MobileExchange = () => {
           })}
         </CardContainer>
       </Container>
-      <Footer />
+      <MobileFooter />
     </Root>
   );
 };
