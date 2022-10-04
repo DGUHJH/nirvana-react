@@ -15,7 +15,7 @@ import {
   Root,
 } from './styled';
 import Footer from 'systems/Footer';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import useGetImage from 'hooks/useGetImage';
 import { isMobile } from 'react-device-detect';
 import MobileGoodsDetails from './Mobile';
@@ -24,6 +24,7 @@ import { commonAxios } from 'api/commonAxios';
 
 const GoodsDetails = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const uuid = location.pathname.split('/')[2];
   const userUuid = localStorage.getItem('uuid');
   const { image } = useGetImage({ uuid });
@@ -41,6 +42,12 @@ const GoodsDetails = () => {
   };
 
   useEffect(() => {
+    const uuid = localStorage.getItem('uuid');
+    if (!uuid) {
+      alert('로그인이 필요한 페이지입니다.');
+      navigate('/login');
+    }
+
     window.scrollTo(0, 0);
     commonAxios({
       url: 'get_goods_details.php',

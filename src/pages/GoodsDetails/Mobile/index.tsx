@@ -72,7 +72,7 @@ const MobileGoodsDetails = () => {
                   `(잔여 수량 : ${goods?.number - goods?.history_number} 개)`}
               </ContentInfoPriceTypo>
             </ContentInfoPriceContainer>
-            {(goods?.is_enter === '0' ||
+            {(goods?.is_enter !== '0' ||
               (goods?.is_enter === '0' &&
                 goods?.number - goods?.history_number > 0)) &&
             !isChecked ? (

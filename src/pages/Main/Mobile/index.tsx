@@ -89,36 +89,6 @@ const MobileMain = () => {
             </Swiper>
           </SwiperContainer>
           <SwiperContainer>
-            <SwiperTitleTypo level={5}>
-              젠지 선수단 친필 사인 리스트
-            </SwiperTitleTypo>
-            <Swiper
-              slidesPerView={1}
-              spaceBetween={30}
-              freeMode={true}
-              autoplay={{
-                delay: 2500,
-                disableOnInteraction: false,
-              }}
-              pagination={{
-                clickable: true,
-              }}
-              modules={[Autoplay, FreeMode, Pagination]}
-              className='mySwiper'
-              style={{ width: '320px', height: '400px' }}
-            >
-              {gengList.map((goods, index) => {
-                return (
-                  <SwiperSlide>
-                    <SwiperInnerContainer>
-                      <ItemCard {...goods} key={`goods_${index}`} />
-                    </SwiperInnerContainer>
-                  </SwiperSlide>
-                );
-              })}
-            </Swiper>
-          </SwiperContainer>
-          <SwiperContainer>
             <SwiperTitleTypo level={5}>니르바나 굿즈 리스트</SwiperTitleTypo>
             <Swiper
               slidesPerView={1}
