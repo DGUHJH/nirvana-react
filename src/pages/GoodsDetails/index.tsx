@@ -60,7 +60,14 @@ const GoodsDetails = () => {
       method: 'POST',
       params: { goods_uuid: goodsUuid, user_uuid: userUuid },
     }).then((res) => {
-      window.location.reload();
+      if (res.data.type === 'success') {
+        window.alert(
+          `${goods?.is_enter === '0' ? '교환' : '응모'}가 완료되었습니다.`
+        );
+        window.location.reload();
+      } else {
+        window.alert('마일리지가 부족합니다.');
+      }
     });
   };
 
@@ -167,11 +174,6 @@ const GoodsDetails = () => {
                     )
                   ) {
                     postGoodsHistory();
-                    window.alert(
-                      `${
-                        goods?.is_enter === '0' ? '교환' : '응모'
-                      }가 완료되었습니다.`
-                    );
                   }
                 }}
               >
