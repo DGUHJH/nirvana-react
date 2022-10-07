@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Main from 'pages/Main';
@@ -19,8 +19,8 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
-root.render(
-  <BrowserRouter>
+const Root = () => {
+  return (
     <Routes>
       <Route path='/' element={<Main />} />
       <Route path='/login' element={<Login />} />
@@ -34,5 +34,11 @@ root.render(
       <Route path='/manage/goods' element={<ManageGoods />} />
       <Route path='/manage/member' element={<ManageMember />} />
     </Routes>
+  );
+};
+
+root.render(
+  <BrowserRouter>
+    <Root />
   </BrowserRouter>
 );

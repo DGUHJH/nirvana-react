@@ -18,6 +18,7 @@ import {
 } from './styled';
 import logo2 from 'assets/images/logo2.png';
 import { useNavigate } from 'react-router-dom';
+import useLocationLog from 'hooks/useLocationLog';
 
 const MobileHeader = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -66,6 +67,8 @@ const MobileHeader = () => {
     }
     setOpen((prev) => !prev);
   };
+
+  useLocationLog();
 
   return (
     <Root>
