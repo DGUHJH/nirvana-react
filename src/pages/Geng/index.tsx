@@ -26,7 +26,7 @@ const Geng = () => {
       <Header />
       <Container>
         <BannerImg src={main_banner} />
-        <CardTitleTypo>응모 상품 리스트</CardTitleTypo>
+        <CardTitleTypo>젠지 선수단 친필 사인 리스트(응모)</CardTitleTypo>
         <CardContainer>
           {gengList.map((goods, index) => {
             return <ItemCard {...goods} key={`goods_${index}`} />;

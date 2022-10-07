@@ -126,7 +126,7 @@ const Main = () => {
         </SwiperContainer>
         <SwiperContainer>
           <SwiperTitleTypo level={2}>
-            젠지 선수단 친필 사인 리스트
+            젠지 선수단 친필 사인 리스트 (응모)
           </SwiperTitleTypo>
           <Swiper
             onBeforeInit={onBeforeInit2}
@@ -161,7 +161,9 @@ const Main = () => {
           </Swiper>
         </SwiperContainer>
         <SwiperContainer>
-          <SwiperTitleTypo level={2}>니르바나 굿즈 리스트</SwiperTitleTypo>
+          <SwiperTitleTypo level={2}>
+            니르바나 굿즈 리스트 (응모)
+          </SwiperTitleTypo>
           <Swiper
             slidesPerView={4}
             spaceBetween={30}

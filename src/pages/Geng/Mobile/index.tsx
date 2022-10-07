@@ -21,7 +21,9 @@ const MobileGoods = () => {
       <MobileHeader />
       <Container>
         <BannerImg src={main_banner} />
-        <CardTitleTypo level={4}>응모 상품 리스트</CardTitleTypo>
+        <CardTitleTypo level={4}>
+          젠지 선수단 친필 사인 리스트(응모)
+        </CardTitleTypo>
         <CardContainer>
           {enterGoodsList.map((goods, index) => {
             return <ItemCard {...goods} key={`goods_${index}`} />;

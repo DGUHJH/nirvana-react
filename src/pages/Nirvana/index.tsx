@@ -26,7 +26,7 @@ const Nirvana = () => {
       <Header />
       <Container>
         <BannerImg src={main_banner} />
-        <CardTitleTypo>응모 상품 리스트</CardTitleTypo>
+        <CardTitleTypo>니르바나 굿즈 리스트 (응모)</CardTitleTypo>
         <CardContainer>
           {nirvanaList.map((goods, index) => {
             return <ItemCard {...goods} key={`goods_${index}`} />;
