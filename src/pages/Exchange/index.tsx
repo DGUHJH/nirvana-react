@@ -26,7 +26,7 @@ const Exchange = () => {
     <Root>
       <Header />
       <Container>
-        <BannerImg src={main_banner} />
+        <BannerImg />
         <CardTitleTypo>교환 상품 리스트</CardTitleTypo>
         <CardContainer>
           {goodsList.map((goods, index) => {

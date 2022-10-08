@@ -25,7 +25,7 @@ const Geng = () => {
     <Root>
       <Header />
       <Container>
-        <BannerImg src={main_banner} />
+        <BannerImg />
         <CardTitleTypo>젠지 선수단 친필 사인 리스트(응모)</CardTitleTypo>
         <CardContainer>
           {gengList.map((goods, index) => {

@@ -25,7 +25,7 @@ const Goods = () => {
     <Root>
       <Header />
       <Container>
-        <BannerImg src={main_banner} />
+        <BannerImg />
         <CardTitleTypo>응모 상품 리스트</CardTitleTypo>
         <CardContainer>
           {enterGoodsList.map((goods, index) => {

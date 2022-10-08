@@ -1,5 +1,6 @@
 import { Typography } from 'antd';
 import styled from 'styled-components';
+import Banner from 'systems/Banner';
 
 export const Root = styled.div`
   width: 100%;
@@ -21,7 +22,7 @@ export const Container = styled.div`
   padding-top: 80px;
 `;
 
-export const BannerImg = styled.img`
+export const BannerImg = styled(Banner)`
   width: 1280px;
   margin-top: -140px;
 `;

@@ -87,7 +87,7 @@ const Main = () => {
     <Root>
       <Header />
       <Container>
-        <BannerImg src={main_banner} />
+        <BannerImg />
         <SwiperContainer>
           <SwiperTitleTypo level={2}>응모 상품 리스트</SwiperTitleTypo>
           <SwiperWrapper>
