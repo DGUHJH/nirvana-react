@@ -14,6 +14,7 @@ import ManageMember from 'pages/Manage/Member';
 import Nirvana from 'pages/Nirvana';
 import Geng from 'pages/Geng';
 import MyPage from 'pages/MyPage';
+import PasswordChange from 'pages/PasswordChange';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -24,6 +25,7 @@ const Root = () => {
     <Routes>
       <Route path='/' element={<Main />} />
       <Route path='/login' element={<Login />} />
+      <Route path='/password_change' element={<PasswordChange />} />
       <Route path='/goods' element={<Goods />} />
       <Route path='/goods_details/:id' element={<GoodsDetails />} />
       <Route path='/exchange' element={<Exchange />} />

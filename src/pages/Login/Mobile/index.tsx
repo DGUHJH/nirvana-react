@@ -42,7 +42,11 @@ const MobileLogin = () => {
     onLogin().then((res: any) => {
       if (res.data.type === 'success') {
         localStorage.setItem('uuid', res.data.data.uuid);
-        window.location.replace('/');
+        if (password === '0000') {
+          window.location.replace('password_change');
+        } else {
+          window.location.replace('/');
+        }
       } else {
         message.error('아이디와 비밀번호를 확인해주세요.');
       }
