@@ -1,4 +1,4 @@
-import { Typography } from 'antd';
+import { Table, Typography } from 'antd';
 import styled from 'styled-components';
 
 export const Root = styled.div`

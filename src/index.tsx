@@ -15,6 +15,7 @@ import Nirvana from 'pages/Nirvana';
 import Geng from 'pages/Geng';
 import MyPage from 'pages/MyPage';
 import PasswordChange from 'pages/PasswordChange';
+import Result from 'pages/Result';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -32,6 +33,7 @@ const Root = () => {
       <Route path='/geng' element={<Geng />} />
       <Route path='/mypage' element={<MyPage />} />
       <Route path='/nirvana' element={<Nirvana />} />
+      <Route path='/result' element={<Result />} />
       <Route path='/manage/main' element={<ManageMain />} />
       <Route path='/manage/goods' element={<ManageGoods />} />
       <Route path='/manage/member' element={<ManageMember />} />

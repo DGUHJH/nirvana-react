@@ -107,6 +107,10 @@ const MobileHeader = () => {
             <DrawerLinkImg />
             <DrawerTypo>교환 상품 리스트</DrawerTypo>
           </DrawerTypoContainer>
+          <DrawerTypoContainer onClick={() => navigate('/result')}>
+            <DrawerLinkImg />
+            <DrawerTypo>응모 결과</DrawerTypo>
+          </DrawerTypoContainer>
         </DrawerContainer>
       </ContentDrawer>
     </Root>
