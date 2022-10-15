@@ -15,7 +15,7 @@ import MobileHeader from 'systems/Header/Mobile';
 import MobileFooter from 'systems/Footer/Mobile';
 
 const MobileGoods = () => {
-  const { enterGoodsList, goodsList } = useGoods();
+  const { enterGoodsList, nirvanaList } = useGoods();
   return (
     <Root>
       <MobileHeader />
@@ -23,7 +23,7 @@ const MobileGoods = () => {
         <BannerImg src={main_banner} />
         <CardTitleTypo level={4}>니르바나 굿즈 리스트 (응모)</CardTitleTypo>
         <CardContainer>
-          {enterGoodsList.map((goods, index) => {
+          {nirvanaList.map((goods, index) => {
             return <ItemCard {...goods} key={`goods_${index}`} />;
           })}
         </CardContainer>

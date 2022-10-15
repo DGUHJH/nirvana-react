@@ -15,7 +15,7 @@ import MobileHeader from 'systems/Header/Mobile';
 import MobileFooter from 'systems/Footer/Mobile';
 
 const MobileGoods = () => {
-  const { enterGoodsList, goodsList } = useGoods();
+  const { enterGoodsList, gengList } = useGoods();
   return (
     <Root>
       <MobileHeader />
@@ -25,7 +25,7 @@ const MobileGoods = () => {
           젠지 선수단 친필 사인 리스트(응모)
         </CardTitleTypo>
         <CardContainer>
-          {enterGoodsList.map((goods, index) => {
+          {gengList.map((goods, index) => {
             return <ItemCard {...goods} key={`goods_${index}`} />;
           })}
         </CardContainer>
