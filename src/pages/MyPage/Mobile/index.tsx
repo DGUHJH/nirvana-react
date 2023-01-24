@@ -72,7 +72,15 @@ const MobileMyPage = () => {
           <CardTitleTypo>내가 응모/교환한 상품 리스트</CardTitleTypo>
         </CardTitleTypoWrapper>
         <CardContainer>
-          {goods?.map((value) => {
+          {goods?.filter((value) => value.is_available === "1").map((value) => {
+            return <ItemCard {...value} />;
+          })}
+        </CardContainer>
+        <CardTitleTypoWrapper>
+          <CardTitleTypo>내가 응모/교환한 상품 리스트(이전)</CardTitleTypo>
+        </CardTitleTypoWrapper>
+        <CardContainer>
+          {goods?.filter((value) => value.is_available === "0").map((value) => {
             return <ItemCard {...value} />;
           })}
         </CardContainer>
