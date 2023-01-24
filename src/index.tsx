@@ -33,7 +33,7 @@ const Root = () => {
       <Route path='/geng' element={<Geng />} />
       <Route path='/mypage' element={<MyPage />} />
       <Route path='/nirvana' element={<Nirvana />} />
-      <Route path='/result' element={<Result />} />
+      {/* <Route path='/result' element={<Result />} /> */}
       <Route path='/manage/main' element={<ManageMain />} />
       <Route path='/manage/goods' element={<ManageGoods />} />
       <Route path='/manage/member' element={<ManageMember />} />
