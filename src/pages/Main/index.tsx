@@ -36,7 +36,7 @@ import useGoods from 'hooks/useGoods';
 SwiperCore.use([Navigation]);
 
 const Main = () => {
-  const { enterGoodsList, goodsList, allGoodsList, gengList, nirvanaList } =
+  const { allGoodsList,couponList,fashionList,foodList,livingList } =
     useGoods();
   const leftRef = useRef(null);
   const rightRef = useRef(null);
@@ -89,7 +89,7 @@ const Main = () => {
       <Container>
         <BannerImg />
         <SwiperContainer>
-          <SwiperTitleTypo level={2}>응모 상품 리스트</SwiperTitleTypo>
+          <SwiperTitleTypo level={2}>식품 상품 리스트 (응모)</SwiperTitleTypo>
           <SwiperWrapper>
             <Swiper
               onBeforeInit={onBeforeInit}
@@ -106,7 +106,7 @@ const Main = () => {
               className='mySwiper'
               style={{ width: '1280px', height: '400px', padding: '0 90px' }}
             >
-              {enterGoodsList.map((goods, index) => {
+              {foodList.map((goods, index) => {
                 return (
                   <SwiperSlide>
                     <SwiperInnerContainer>
@@ -126,7 +126,7 @@ const Main = () => {
         </SwiperContainer>
         <SwiperContainer>
           <SwiperTitleTypo level={2}>
-            젠지 선수단 친필 사인 리스트 (응모)
+            상품권 상품 리스트 (응모)
           </SwiperTitleTypo>
           <Swiper
             onBeforeInit={onBeforeInit2}
@@ -143,7 +143,7 @@ const Main = () => {
             className='mySwiper'
             style={{ width: '1280px', height: '400px', padding: '0 90px' }}
           >
-            {gengList.map((goods, index) => {
+            {couponList.map((goods, index) => {
               return (
                 <SwiperSlide>
                   <SwiperInnerContainer>
@@ -162,7 +162,7 @@ const Main = () => {
         </SwiperContainer>
         <SwiperContainer>
           <SwiperTitleTypo level={2}>
-            니르바나 굿즈 리스트 (응모)
+            패션 상품 리스트 (응모)
           </SwiperTitleTypo>
           <Swiper
             slidesPerView={4}
@@ -179,7 +179,7 @@ const Main = () => {
             className='mySwiper'
             style={{ width: '1100px', height: '400px' }}
           >
-            {nirvanaList.map((goods, index) => {
+            {fashionList.map((goods, index) => {
               return (
                 <SwiperSlide>
                   <SwiperInnerContainer>
@@ -191,7 +191,7 @@ const Main = () => {
           </Swiper>
         </SwiperContainer>
         <SwiperContainer>
-          <SwiperTitleTypo level={2}>교환 상품 리스트</SwiperTitleTypo>
+          <SwiperTitleTypo level={2}>리빙 상품 리스트 (응모)</SwiperTitleTypo>
           <Swiper
             onBeforeInit={onBeforeInit4}
             slidesPerView={4}
@@ -207,7 +207,7 @@ const Main = () => {
             className='mySwiper'
             style={{ width: '1280px', height: '400px', padding: '0 90px' }}
           >
-            {goodsList.map((goods, index) => {
+            {livingList.map((goods, index) => {
               return (
                 <SwiperSlide>
                   <SwiperInnerContainer>

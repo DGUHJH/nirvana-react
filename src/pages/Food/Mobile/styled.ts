@@ -20,7 +20,6 @@ export const Container = styled.div`
 
 export const BannerImg = styled.img`
   width: 100%;
-  margin-top: -150px;
 `;
 
 export const CardContainer = styled.div`

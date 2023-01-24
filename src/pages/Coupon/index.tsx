@@ -5,32 +5,38 @@ import {
   CardContainer,
   CardTitleTypo,
   Container,
+  FooterWrapper,
   Root,
 } from './styled';
-import main_banner from 'assets/images/main_banner.png';
 import ItemCard from 'systems/ItemCard';
 import Footer from 'systems/Footer';
 import useGoods from 'hooks/useGoods';
-import MobileHeader from 'systems/Header/Mobile';
-import MobileFooter from 'systems/Footer/Mobile';
+import MobileGoods from './Mobile';
+import { isMobile } from 'react-device-detect';
 
-const MobileGoods = () => {
-  const { enterGoodsList, nirvanaList } = useGoods();
+const CouponPage = () => {
+  const { couponList } = useGoods();
+
+  if (isMobile) {
+    return <MobileGoods />;
+  }
   return (
     <Root>
-      <MobileHeader />
+      <Header />
       <Container>
-        <BannerImg src={main_banner} />
-        <CardTitleTypo level={4}>니르바나 굿즈 리스트 (응모)</CardTitleTypo>
+        <BannerImg />
+        <CardTitleTypo>상품권 상품 리스트 (응모)</CardTitleTypo>
         <CardContainer>
-          {nirvanaList.map((goods, index) => {
+          {couponList.map((goods, index) => {
             return <ItemCard {...goods} key={`goods_${index}`} />;
           })}
         </CardContainer>
       </Container>
-      <MobileFooter />
+      <FooterWrapper>
+        <Footer />
+      </FooterWrapper>
     </Root>
   );
 };
 
-export default MobileGoods;
+export default CouponPage;

@@ -5,32 +5,38 @@ import {
   CardContainer,
   CardTitleTypo,
   Container,
+  FooterWrapper,
   Root,
 } from './styled';
-import main_banner from 'assets/images/main_banner.png';
 import ItemCard from 'systems/ItemCard';
 import Footer from 'systems/Footer';
 import useGoods from 'hooks/useGoods';
-import MobileHeader from 'systems/Header/Mobile';
-import MobileFooter from 'systems/Footer/Mobile';
+import MobileGoods from './Mobile';
+import { isMobile } from 'react-device-detect';
 
-const MobileExchange = () => {
-  const { enterGoodsList, goodsList } = useGoods();
+const LivingPage = () => {
+  const { livingList } = useGoods();
+
+  if (isMobile) {
+    return <MobileGoods />;
+  }
   return (
     <Root>
-      <MobileHeader />
+      <Header />
       <Container>
-        <BannerImg src={main_banner} />
-        <CardTitleTypo level={4}>교환 상품 리스트</CardTitleTypo>
+        <BannerImg />
+        <CardTitleTypo>리빙 상품 리스트 (응모)</CardTitleTypo>
         <CardContainer>
-          {goodsList.map((goods, index) => {
+          {livingList.map((goods, index) => {
             return <ItemCard {...goods} key={`goods_${index}`} />;
           })}
         </CardContainer>
       </Container>
-      <MobileFooter />
+      <FooterWrapper>
+        <Footer />
+      </FooterWrapper>
     </Root>
   );
 };
 
-export default MobileExchange;
+export default LivingPage;

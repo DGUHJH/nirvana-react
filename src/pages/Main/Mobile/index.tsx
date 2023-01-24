@@ -21,7 +21,7 @@ import { Autoplay, FreeMode, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 const MobileMain = () => {
-  const { enterGoodsList, goodsList, allGoodsList, gengList, nirvanaList } =
+  const { allGoodsList,couponList,fashionList,foodList,livingList } =
     useGoods();
 
   return (
@@ -31,7 +31,7 @@ const MobileMain = () => {
         <ContentContainer>
           <BannerImg src={banner} />
           <SwiperContainer>
-            <SwiperTitleTypo level={5}>응모 상품 리스트</SwiperTitleTypo>
+            <SwiperTitleTypo level={5}>식품 상품 리스트 (응모)</SwiperTitleTypo>
             <Swiper
               slidesPerView={1}
               spaceBetween={30}
@@ -47,7 +47,7 @@ const MobileMain = () => {
               className='mySwiper'
               style={{ width: '320px', height: '400px' }}
             >
-              {enterGoodsList.map((goods, index) => {
+              {foodList.map((goods, index) => {
                 return (
                   <SwiperSlide>
                     <SwiperInnerContainer>
@@ -60,7 +60,7 @@ const MobileMain = () => {
           </SwiperContainer>
           <SwiperContainer>
             <SwiperTitleTypo level={5}>
-              젠지 선수단 친필 사인 리스트 (응모)
+              상품권 상품 리스트 (응모)
             </SwiperTitleTypo>
             <Swiper
               slidesPerView={1}
@@ -77,7 +77,7 @@ const MobileMain = () => {
               className='mySwiper'
               style={{ width: '320px', height: '400px' }}
             >
-              {gengList.map((goods, index) => {
+              {couponList.map((goods, index) => {
                 return (
                   <SwiperSlide>
                     <SwiperInnerContainer>
@@ -90,7 +90,7 @@ const MobileMain = () => {
           </SwiperContainer>
           <SwiperContainer>
             <SwiperTitleTypo level={5}>
-              니르바나 굿즈 리스트 (응모)
+              패션 상품 리스트 (응모)
             </SwiperTitleTypo>
             <Swiper
               slidesPerView={1}
@@ -107,7 +107,7 @@ const MobileMain = () => {
               className='mySwiper'
               style={{ width: '320px', height: '400px' }}
             >
-              {nirvanaList.map((goods, index) => {
+              {fashionList.map((goods, index) => {
                 return (
                   <SwiperSlide>
                     <SwiperInnerContainer>
@@ -119,7 +119,7 @@ const MobileMain = () => {
             </Swiper>
           </SwiperContainer>
           <SwiperContainer>
-            <SwiperTitleTypo level={5}>교환 상품 리스트</SwiperTitleTypo>
+            <SwiperTitleTypo level={5}>리빙 상품 리스트 (응모)</SwiperTitleTypo>
             <Swiper
               slidesPerView={1}
               spaceBetween={30}
@@ -135,7 +135,7 @@ const MobileMain = () => {
               className='mySwiper'
               style={{ width: '320px', height: '400px' }}
             >
-              {goodsList.map((goods, index) => {
+              {livingList.map((goods, index) => {
                 return (
                   <SwiperSlide>
                     <SwiperInnerContainer>

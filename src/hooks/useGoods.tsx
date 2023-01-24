@@ -2,38 +2,38 @@ import { commonAxios } from 'api/commonAxios';
 import { useEffect, useState } from 'react';
 
 const useGoods = () => {
-  const [enterGoodsList, setEnterGoodsList] = useState<any[]>([]);
-  const [gengList, setGengList] = useState<any[]>([]);
-  const [nirvanaList, setNirvanaList] = useState<any[]>([]);
-  const [goodsList, setGoodsList] = useState<any[]>([]);
+  const [foodList, setFoodList] = useState<any[]>([]);
+  const [couponList, setCouponList] = useState<any[]>([]);
+  const [fashionList, setFashionList] = useState<any[]>([]);
+  const [livingList, setLivingList] = useState<any[]>([]);
   const [allGoodsList, setAllGoodsList] = useState<any[]>([]);
 
   useEffect(() => {
     commonAxios({ url: 'get_goods_list.php', method: 'GET' }).then((res) => {
-      let newEnterGoodsList: any[] = [];
-      let newGengList: any[] = [];
-      let newNirvanaList: any[] = [];
-      let newGoodsList: any[] = [];
+      let newFoodList: any[] = [];
+      let newCouponList: any[] = [];
+      let newFashionList: any[] = [];
+      let newLivingList: any[] = [];
       res.data.data.forEach((value: any) => {
-        if (value.is_enter === '1') {
-          newEnterGoodsList.push(value);
-        } else if (value.is_enter === '2') {
-          newGengList.push(value);
-        } else if (value.is_enter === '3') {
-          newNirvanaList.push(value);
+        if (value.is_enter === '4') {
+          newFoodList.push(value);
+        } else if (value.is_enter === '5') {
+          newCouponList.push(value);
+        } else if (value.is_enter === '6') {
+          newFashionList.push(value);
         } else {
-          newGoodsList.push(value);
+          newLivingList.push(value);
         }
       });
-      setEnterGoodsList(newEnterGoodsList);
-      setGoodsList(newGoodsList);
-      setGengList(newGengList);
-      setNirvanaList(newNirvanaList);
+      setFoodList(newFoodList);
+      setCouponList(newCouponList);
+      setFashionList(newFashionList);
+      setLivingList(newLivingList);
       setAllGoodsList(res.data.data);
     });
   }, []);
 
-  return { enterGoodsList, goodsList, gengList, nirvanaList, allGoodsList };
+  return { foodList, couponList, fashionList, livingList, allGoodsList };
 };
 
 export default useGoods;

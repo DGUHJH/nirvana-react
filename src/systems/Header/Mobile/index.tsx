@@ -91,21 +91,21 @@ const MobileHeader = () => {
               로그인
             </ContentButton>
           )}
-          <DrawerTypoContainer onClick={() => navigate('/goods')}>
+          <DrawerTypoContainer onClick={() => navigate('/food')}>
             <DrawerLinkImg />
-            <DrawerTypo>응모 상품 리스트</DrawerTypo>
+            <DrawerTypo>식품 상품 리스트</DrawerTypo>
           </DrawerTypoContainer>
-          <DrawerTypoContainer onClick={() => navigate('/geng')}>
+          <DrawerTypoContainer onClick={() => navigate('/coupon')}>
             <DrawerLinkImg />
-            <DrawerTypo>젠지 선수단 친필 사인 리스트</DrawerTypo>
+            <DrawerTypo>상품권 상품 리스트</DrawerTypo>
           </DrawerTypoContainer>
-          <DrawerTypoContainer onClick={() => navigate('/nirvana')}>
+          <DrawerTypoContainer onClick={() => navigate('/fashion')}>
             <DrawerLinkImg />
-            <DrawerTypo>니르바나 굿즈 리스트</DrawerTypo>
+            <DrawerTypo>패션 상품 리스트</DrawerTypo>
           </DrawerTypoContainer>
-          <DrawerTypoContainer onClick={() => navigate('/exchange')}>
+          <DrawerTypoContainer onClick={() => navigate('/living')}>
             <DrawerLinkImg />
-            <DrawerTypo>교환 상품 리스트</DrawerTypo>
+            <DrawerTypo>리빙 상품 리스트</DrawerTypo>
           </DrawerTypoContainer>
           {/* <DrawerTypoContainer onClick={() => navigate('/result')}>
             <DrawerLinkImg />

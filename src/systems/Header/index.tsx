@@ -72,17 +72,17 @@ const Header = () => {
       <Container>
         <MenuContainer>
           <LogoImg src={logo2} onClick={() => navigate('/')} />
-          <div onClick={() => navigate('/goods')}>
-            <MenuTypo>응모 상품</MenuTypo>
+          <div onClick={() => navigate('/food')}>
+            <MenuTypo>식품</MenuTypo>
           </div>
-          <div onClick={() => navigate('/geng')}>
-            <MenuTypo>젠지 선수단 친필 사인</MenuTypo>
+          <div onClick={() => navigate('/coupon')}>
+            <MenuTypo>상품권</MenuTypo>
           </div>
-          <div onClick={() => navigate('/nirvana')}>
-            <MenuTypo>니르바나 굿즈</MenuTypo>
+          <div onClick={() => navigate('/fashion')}>
+            <MenuTypo>패션</MenuTypo>
           </div>
-          <div onClick={() => navigate('/exchange')}>
-            <MenuTypo>교환 상품</MenuTypo>
+          <div onClick={() => navigate('/living')}>
+            <MenuTypo>리빙</MenuTypo>
           </div>
           {/* <div onClick={() => navigate('/result')}>
             <MenuTypo>응모 결과</MenuTypo>

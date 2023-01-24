@@ -8,14 +8,14 @@ import 'default.css';
 import ManageMain from 'pages/Manage/Main';
 import GoodsDetails from 'pages/GoodsDetails';
 import Goods from 'pages/Goods';
-import Exchange from 'pages/Exchange';
 import ManageGoods from 'pages/Manage/Goods';
 import ManageMember from 'pages/Manage/Member';
-import Nirvana from 'pages/Nirvana';
-import Geng from 'pages/Geng';
 import MyPage from 'pages/MyPage';
 import PasswordChange from 'pages/PasswordChange';
-import Result from 'pages/Result';
+import FoodPage from 'pages/Food';
+import CouponPage from 'pages/Coupon';
+import LivingPage from 'pages/Living';
+import FashionPage from 'pages/Fashion';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -29,10 +29,11 @@ const Root = () => {
       <Route path='/password_change' element={<PasswordChange />} />
       <Route path='/goods' element={<Goods />} />
       <Route path='/goods_details/:id' element={<GoodsDetails />} />
-      <Route path='/exchange' element={<Exchange />} />
-      <Route path='/geng' element={<Geng />} />
+      <Route path='/food' element={<FoodPage />} />
+      <Route path='/coupon' element={<CouponPage />} />
+      <Route path='/living' element={<LivingPage />} />
+      <Route path='/fashion' element={<FashionPage />} />
       <Route path='/mypage' element={<MyPage />} />
-      <Route path='/nirvana' element={<Nirvana />} />
       {/* <Route path='/result' element={<Result />} /> */}
       <Route path='/manage/main' element={<ManageMain />} />
       <Route path='/manage/goods' element={<ManageGoods />} />

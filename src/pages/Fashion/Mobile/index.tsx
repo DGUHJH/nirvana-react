@@ -5,39 +5,34 @@ import {
   CardContainer,
   CardTitleTypo,
   Container,
-  FooterWrapper,
   Root,
 } from './styled';
 import main_banner from 'assets/images/main_banner.png';
 import ItemCard from 'systems/ItemCard';
 import Footer from 'systems/Footer';
 import useGoods from 'hooks/useGoods';
-import MobileGoods from './Mobile';
-import { isMobile } from 'react-device-detect';
+import MobileHeader from 'systems/Header/Mobile';
+import MobileFooter from 'systems/Footer/Mobile';
 
-const Goods = () => {
-  const { allGoodsList } = useGoods();
-
-  if (isMobile) {
-    return <MobileGoods />;
-  }
+const MobileFoodPage = () => {
+  const { fashionList } = useGoods();
   return (
     <Root>
-      <Header />
+      <MobileHeader />
       <Container>
-        <BannerImg />
-        <CardTitleTypo>응모 상품 리스트</CardTitleTypo>
+        <BannerImg src={main_banner} />
+        <CardTitleTypo level={4}>
+          패션 상품 리스트 (응모)
+        </CardTitleTypo>
         <CardContainer>
-          {allGoodsList.map((goods, index) => {
+          {fashionList.map((goods, index) => {
             return <ItemCard {...goods} key={`goods_${index}`} />;
           })}
         </CardContainer>
       </Container>
-      <FooterWrapper>
-        <Footer />
-      </FooterWrapper>
+      <MobileFooter />
     </Root>
   );
 };
 
-export default Goods;
+export default MobileFoodPage;

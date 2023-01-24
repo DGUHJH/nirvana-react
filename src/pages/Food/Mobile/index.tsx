@@ -5,39 +5,34 @@ import {
   CardContainer,
   CardTitleTypo,
   Container,
-  FooterWrapper,
   Root,
 } from './styled';
 import main_banner from 'assets/images/main_banner.png';
 import ItemCard from 'systems/ItemCard';
 import Footer from 'systems/Footer';
 import useGoods from 'hooks/useGoods';
-import MobileGoods from './Mobile';
-import { isMobile } from 'react-device-detect';
+import MobileHeader from 'systems/Header/Mobile';
+import MobileFooter from 'systems/Footer/Mobile';
 
-const Geng = () => {
-  const { gengList, goodsList } = useGoods();
-
-  if (isMobile) {
-    return <MobileGoods />;
-  }
+const MobileFoodPage = () => {
+  const { foodList } = useGoods();
   return (
     <Root>
-      <Header />
+      <MobileHeader />
       <Container>
-        <BannerImg />
-        <CardTitleTypo>젠지 선수단 친필 사인 리스트(응모)</CardTitleTypo>
+        <BannerImg src={main_banner} />
+        <CardTitleTypo level={4}>
+          식품 상품 리스트 (응모)
+        </CardTitleTypo>
         <CardContainer>
-          {gengList.map((goods, index) => {
+          {foodList.map((goods, index) => {
             return <ItemCard {...goods} key={`goods_${index}`} />;
           })}
         </CardContainer>
       </Container>
-      <FooterWrapper>
-        <Footer />
-      </FooterWrapper>
+      <MobileFooter />
     </Root>
   );
 };
 
-export default Geng;
+export default MobileFoodPage;
