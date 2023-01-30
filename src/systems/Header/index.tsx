@@ -84,9 +84,9 @@ const Header = () => {
           <div onClick={() => navigate('/living')}>
             <MenuTypo>리빙</MenuTypo>
           </div>
-          {/* <div onClick={() => navigate('/result')}>
+          <div onClick={() => navigate('/result')}>
             <MenuTypo>응모 결과</MenuTypo>
-          </div> */}
+          </div>
         </MenuContainer>
         <MenuContainer>
           {isLogin ? (

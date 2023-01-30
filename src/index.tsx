@@ -16,6 +16,7 @@ import FoodPage from 'pages/Food';
 import CouponPage from 'pages/Coupon';
 import LivingPage from 'pages/Living';
 import FashionPage from 'pages/Fashion';
+import Result from 'pages/Result';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -34,7 +35,7 @@ const Root = () => {
       <Route path='/living' element={<LivingPage />} />
       <Route path='/fashion' element={<FashionPage />} />
       <Route path='/mypage' element={<MyPage />} />
-      {/* <Route path='/result' element={<Result />} /> */}
+      <Route path='/result' element={<Result />} />
       <Route path='/manage/main' element={<ManageMain />} />
       <Route path='/manage/goods' element={<ManageGoods />} />
       <Route path='/manage/member' element={<ManageMember />} />
